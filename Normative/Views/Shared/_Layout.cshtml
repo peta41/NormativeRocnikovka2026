@@ -1,0 +1,84 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Hosting
+@using Microsoft.Extensions.Options
+
+@inject IWebHostEnvironment Environment
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Normative - @ViewData["Title"]</title>
+    <meta name="author" content="Petr Docekal">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/flag-icons/css/flag-icons.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fontello/css/fontello.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @if (Environment.IsDevelopment())
+    {
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    }
+    
+
+    @await RenderSectionAsync("Style", required: false)
+
+</head>
+<body>
+
+
+
+    
+    <div id="loader" class="blur" style="display: none;">
+        <div class="loader">
+            <img src="~/svg/loader.svg" style="width: 100px; height: 100px;" />
+        </div>
+    </div>
+
+    
+    <div class="container pt-5">
+        <div class="pt-5">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Message -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="Toast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="border-top footer fixed-bottom text-body-secondary bg-light d-print-none">
+        <div class="container">
+            &copy; 2025 - Normative            
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    
+    @await RenderSectionAsync("Library", required: false)
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    @if (TempData["AlertMessage"] != null)
+    {
+        <script>
+            QuickMessage("@TempData["AlertType"]", "@TempData["AlertMessage"].ToString()");
+        </script>
+    }
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

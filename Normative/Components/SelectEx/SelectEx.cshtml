@@ -1,0 +1,138 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model Components.ModelSelectEx
+
+<style>
+    .position-dropdown {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
+
+        .position-dropdown > div > div {
+            height: auto;
+            overflow: auto;
+            max-height: 200px;
+        }
+
+</style>
+
+@if (Model != null)
+{
+    <div class="mb-3">
+        @if (@Model.IsRequired)
+        {
+            <span class='text-danger'>*</span>
+        }
+        <label class="form-label">@Localizer[Model.DisplayName]</label>
+        @if (Model.Enable == true)
+        {
+
+            <input type="text" class="form-control" data-name="@Model.Identificator" id="@Model.Identificator-visible" onclick="SelectExSearch(this)" data-init="false" placeholder='@Localizer["Search for names.."]' autocomplete="off" value="@(Model.DefaultValue != null ? @Model.Rows.Where(w=>w.Id == Model.DefaultValue).Select(s=>s.Name).FirstOrDefault() : "")"
+            @(Model.IsRequired ? "required" : "") @(Model.Enable == true ? "" : "readonly")>
+            <input type="hidden" name="@Model.Identificator" id="@Model.Identificator-hidden"
+                   value='@(Model.DefaultValue != 0 ? @Model.Rows.FirstOrDefault(w => w.Id == Model.DefaultValue).Name : "")'>
+
+            <div class="position-relative">
+                <div class="position-dropdown d-none" id="@Model.Identificator-suggestion">
+                    <div class="form-control p-0">
+                        <div class="w-100 p-0">
+                            <ul class="list-group border-0" id="@Model.Identificator-list">
+                                @foreach (Components.SelectExRow ser in Model.Rows)
+                                {
+                                    <li class="list-group-item" onclick="selectex(this)" data-id="@ser.Id" data-name="@ser.Name">@ser.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <input type="text" class="form-control disabled" data-name="@Model.Identificator" id="@Model.Identificator-visible" placeholder='@Localizer["Search for names.."]' autocomplete="off" value="@(Model.DefaultValue != null ? @Model.Rows.Where(w=>w.Id == Model.DefaultValue).Select(s=>s.Name).FirstOrDefault() : "")"
+            @(Model.IsRequired ? "required" : "") @(Model.Enable == true ? "" : "readonly")>
+            <input type="hidden" name="@Model.Identificator" id="@Model.Identificator-hidden"
+            @(Model.DefaultValue != null) ? value=@Model.Rows.Where(w=>w.Id == Model.DefaultValue).Select(s=>s.Id).FirstOrDefault() : "" )>
+
+        }
+
+    </div>
+}
+
+
+<script>
+    function selectex(obj) {
+        var id = obj.dataset.id;
+        var name = obj.dataset.name;
+        
+        console.log(name);
+        
+        //document.getElementById(name + "-visible").value = obj.innerText.trim();
+        //document.getElementById(name + "-hidden").value = id;
+    }
+
+
+    function SelectExSearchSuggestion(obj) {
+        var el = obj;
+        var name = el.dataset.name;
+        var filter = obj.value.toUpperCase();
+        var li = document.getElementById(name + "-list").children;
+        document.getElementById(name + "-suggestion").classList.remove("d-none");
+
+        for (var i = 0; i < li.length; i++) {
+            var text = li[i].innerText.toUpperCase();
+            if (text.includes(filter)) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+    function SelectExSearchValid(obj) {
+        var el = obj;
+        var name = el.dataset.name;
+        var li = document.getElementById(name + "-list").children;
+        var reset = true;
+        var id = 0;
+
+        if (!document.getElementById(name + "-visible").matches(":focus")) {
+            document.getElementById(name + "-suggestion").classList.add("d-none");
+        }
+
+        for (var i = 0; i < li.length; i++) {
+            if (obj.value.toUpperCase() == li[i].innerText.toUpperCase()) {
+                reset = false;
+                id = li[i].dataset.id;
+                break;
+            }
+        }
+
+        if (reset) {
+            obj.value = "";
+            document.getElementById(name + "-hidden").value = "";
+        } else {
+            document.getElementById(name + "-hidden").value = id;
+        }
+    }
+
+    function SelectExSearch(element) {
+        if (element.getAttribute('data-init') !== 'true') {
+            element.addEventListener("keyup", function (event) {
+                SelectExSearchSuggestion(element);
+            });
+
+            document.addEventListener('click', function (event) {
+                SelectExSearchValid(element);
+            });
+
+            element.setAttribute("data-init", "true");
+        }
+
+        var el = element;
+        var name = el.dataset.name;
+        document.getElementById(name + "-suggestion").classList.remove("d-none");
+    }
+
+</script>

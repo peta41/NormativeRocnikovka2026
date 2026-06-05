@@ -1,0 +1,109 @@
+﻿@model OperationModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Back-Button-OperationsE {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Name-adjust-E-Operations {
+        margin-bottom: 5px;
+    }
+
+    .Name2-adjust-E-Operations{
+        margin-bottom: 5px;
+    }
+
+    .OperationNumber-adjust-E-Operations{
+        margin-bottom: 5px;
+    }
+
+    .OperationDescription-adjust-E-Operations{
+        margin-bottom: 5px;
+    }
+
+    .WorkCenter-adjust-E-Operations{
+        margin-bottom: 5px;
+    }
+
+    .Save-adjust-E-Operations {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Edit"]</h1>
+
+<h4>@Localizer["Operation"]</h4>
+<hr />
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row w-75">
+        <form asp-action="Edit" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger col-12 mb-3"></div>
+            <input type="hidden" asp-for="@Model.Operation.OperationId" />
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Operation.ProductLine.Name" class="control-label"></label>
+                <select asp-for="@Model.Operation.ProductLine.Name" class="form-control">
+                    @if (Model.ProductLine != null)
+                    {
+                        @foreach (ProductLine line in Model.ProductLines)
+                        {
+                            <option value="@line.ProductLineId">@line.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="@Model.Operation.ProductLine.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Operation.ProductType.Name" class="control-label"></label>
+                <select asp-for="@Model.Operation.ProductType.Name" class="form-control">
+                    @if (Model.ProductType != null)
+                    {
+                        @foreach (ProductType type in Model.ProductTypes)
+                        {
+                            <option value="@type.ProductTypeId">@type.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="@Model.Operation.ProductType.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Operation.OperationNumber" class="control-label"></label>
+                <input asp-for="@Model.Operation.OperationNumber" class="form-control" />
+                <span asp-validation-for="@Model.Operation.OperationNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Operation.OperationDescription" class="control-label"></label>
+                <input asp-for="@Model.Operation.OperationDescription" class="form-control" />
+                <span asp-validation-for="@Model.Operation.OperationDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Operation.WorkCenter" class="control-label"></label>
+                <input asp-for="@Model.Operation.WorkCenter" class="form-control" />
+                <span asp-validation-for="@Model.Operation.WorkCenter" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+@model ToolBar
+
+<nav class="navbar navbar-light navbar-expand bg-light fixed-top d-print-none" style="top: 50px;height: 35px;border-bottom: 1px solid rgb(184,174,174);z-index: 100">
+    <div class="container">
+        <div class="col">
+            <div class="d-inline-flex">
+
+
+            @{
+                var query = $"{Context.Request.QueryString}";
+
+                if (Model != null && Model.Filter != null)
+                {
+                    foreach (KeyValuePair<string, string> el in Model.Filter)
+                    {
+                        if (string.IsNullOrEmpty(el.Value) == false || el.Value == "false")
+                        {
+                            <div class="col col-auto rounded me-2 " style="background-color: #D1DDE2 !important;">
+                                <span class="p-2 pe-0 text-truncate">@Localizer[el.Value]</span>
+                                <a asp-action="ClearFilter" asp-route-param="@el.Key" asp-route-query="@query">
+                                    <i class="icon icon-cancel pe-1 cursor-pointer disable-view" title="@Localizer["Cancel filter"]"></i>
+                                </a>
+                            </div>
+                        }
+                    }
+                }
+            }    
+            
+            
+            </div>
+        </div>
+        <div class="ms-auto"></div>
+        <div class="text-end">
+            @if (Model != null)
+            {
+                @if (Model.Action != null)
+                {
+                    <ul class="navbar-nav">
+                    @foreach (ToolBarActionLink link in Model.Action.Where(w=>w.Visible == true))
+                    {
+                        <li class="nav-item">
+                        @if(link.JavaScript == null)
+                        {
+                            <a class="nav-link active link-primary param" asp-action="@link.Action" asp-controller="@link.Controller" asp-route-id="@link.Parameter">
+                                <i class="@link.Icon"></i>&nbsp;@Localizer[link.Title]
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="nav-link active link-primary cursor-pointer" onclick="@link.JavaScript" role="button">
+                                <i class="@link.Icon"></i>&nbsp;@Localizer[link.Title]
+                            </span>
+                        }
+                        </li>
+                    }
+                    </ul>
+                }
+            }
+        </div>
+    </div>
+</nav>

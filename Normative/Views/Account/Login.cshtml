@@ -1,0 +1,175 @@
+﻿@model Normative.Models.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    .login-wrapper {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f4f8;
+    }
+
+    .login-card {
+        background: #ffffff;
+        border: 1px solid #d0dce8;
+        border-radius: 12px;
+        padding: 2.5rem 2rem;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 1px 4px rgba(24,95,165,0.08);
+    }
+
+    .login-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: #185FA5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        font-size: 20px;
+    }
+
+    .login-card h1 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 4px;
+        color: #0d2a4a;
+    }
+
+    .login-card .subtitle {
+        font-size: 14px;
+        color: #5a7a9a;
+        margin: 0 0 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2d5070;
+            margin-bottom: 6px;
+        }
+
+        .form-group .form-control {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 9px 12px;
+            font-size: 14px;
+            border: 1px solid #b8cfe0;
+            border-radius: 8px;
+            background: #f7fafd;
+            color: #0d2a4a;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            outline: none;
+        }
+
+            .form-group .form-control:focus {
+                border-color: #185FA5;
+                box-shadow: 0 0 0 3px rgba(24,95,165,0.12);
+                background: #fff;
+            }
+
+    .text-danger {
+        font-size: 12px;
+        color: #c0392b;
+        margin-top: 4px;
+        display: block;
+    }
+
+    .btn-login {
+        width: 100%;
+        margin-top: 0.75rem;
+        background: #185FA5;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+        .btn-login:hover {
+            background: #0c4480;
+        }
+
+    .login-footer {
+        text-align: center;
+        font-size: 13px;
+        color: #5a7a9a;
+        margin-top: 1.5rem;
+    }
+
+        .login-footer a {
+            color: #185FA5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+            .login-footer a:hover {
+                text-decoration: underline;
+            }
+
+    .error-banner {
+        background: #fff0f0;
+        border: 1px solid #f5c6c6;
+        border-radius: 8px;
+        padding: 10px 14px;
+        color: #c0392b;
+        font-size: 13px;
+        margin-top: 1rem;
+    }
+</style>
+
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="login-icon">🔒</div>
+        <h1>Login</h1>
+        <p class="subtitle">Welcome back</p>
+
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="UsernameOrEmail" class="control-label"></label>
+                <input asp-for="UsernameOrEmail" class="form-control" placeholder="your@email.com" />
+                <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="••••••••" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn-login" />
+            </div>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error-banner">@ViewBag.Error</div>
+        }
+
+        <div class="login-footer">
+            Don't have an account? <a asp-action="Registration">Go To Registration</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

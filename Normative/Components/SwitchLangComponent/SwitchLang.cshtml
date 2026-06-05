@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+
+@using FRS.UI.Components.SwitchLang;
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    RequestCulture? requestCulture = Context?.Features?.Get<IRequestCultureFeature>()?.RequestCulture;
+
+    ListLang defaultCulture = new("us-en", "English (United States)");
+    if (requestCulture != null)
+    {
+        defaultCulture = new(requestCulture.Culture.Name, requestCulture.Culture.EnglishName);
+    }
+
+    List<ListLang> cultureItems = new();
+
+    foreach (var l in LocOptions.Value.SupportedUICultures)
+    {
+        cultureItems.Add(new ListLang(l.Name, l.EnglishName));
+    }
+
+    var returnUrl = string.IsNullOrEmpty(Context?.Request.Path) ? "~/" : $"~{Context?.Request.Path.Value}";
+}
+
+
+
+<!-- Icon dropdown -->
+<div class="btn-group">
+    <span class="dropdown-toggle no-dropdown-arrow align-middle text-white" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+        <i class="@defaultCulture.Flag m-0"></i>
+    </span>
+    <ul class="dropdown-menu dropdown-menu-end">
+
+        @foreach (ListLang ll in cultureItems)
+        {
+            <li>
+                <a class="dropdown-item" href="#" onclick="setLanguage('@ll.Code', '@returnUrl')">
+                    <i class="@ll.Flag"></i> @ll.DisplayName
+
+                    @if (defaultCulture.Code == ll.Code)
+                    {
+                        <i class="fa fa-check text-success ms-2"></i>
+                    }
+
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+
+<style>
+    .no-dropdown-arrow::after {
+        content: none;
+    }
+</style>
+
+<script>
+
+    function setLanguage(culture, returnUrl) {
+        console.log(culture);
+        console.log(returnUrl);
+
+        var data = { culture: "cz", returnUrl: "ahoj", data: "1963" };
+
+        //$.post('/api/SwitchLang/SetLanguage',  )
+
+        //$.post('/api/SwitchLang/SetLanguage/culture/' + culture,  )
+
+        $.ajax({
+            url: "/api/SwitchLang/GetLanguage/" + culture,
+            type: "GET",
+            success: function (result) {
+                // TODO: do something with the results
+                //alert('success');
+                window.location.replace("?culture=" + culture);
+            }
+
+        });
+
+        /*
+        $.ajax({
+            url: "/api/SwitchLang/SetLanguage",
+            type: "POST",
+            data: JSON.stringify({ culture: 'cz', returnUrl: 'ahoj', data: '1963' }),
+            contentType: 'application/json; charset=utf-8',
+            success: function (result) {
+                // TODO: do something with the results
+                alert('success');
+            }
+
+        });
+        */
+    }
+
+</script>

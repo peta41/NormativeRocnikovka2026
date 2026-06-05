@@ -1,0 +1,69 @@
+﻿@model OperationStepModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<h1>@Localizer["Delete"]</h1>
+
+<h3>@Localizer["Are you sure you want to delete this?"]</h3>
+<div>
+    <h4>@Localizer["OperationStep"]</h4>
+    <hr />
+    <table class="table table-striped table-bordered table-sm">
+        <tr>
+            <th>@Localizer["ColumnName"]</th>
+            <th>@Localizer["ColumnData"]</th>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.OperationId)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.OperationId)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.ProductSizeId)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.ProductSizeId)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.Name)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.Name)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.DrawingPosition)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.DrawingPosition)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.Description)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.Description)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.Sequence)</th>
+            <th>@Html.DisplayFor(model => model.OperationStep.Sequence)</th>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.StandardHour)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.StandardHour)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OperationStep.Diameter)</th>
+            <td>@Html.DisplayFor(model => model.OperationStep.Diameter)</td>
+        </tr>
+    </table>
+    
+    <form asp-action="Delete" method="post" class="needs-validation" id="myform">
+        <input type="hidden" asp-for="@Model.OperationStep.OperationStepId" /> 
+    </form>
+</div>
+
+@section Scripts {
+
+    <script src="/js/form.js"></script>
+
+}

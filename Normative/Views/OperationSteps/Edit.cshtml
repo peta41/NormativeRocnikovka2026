@@ -1,0 +1,139 @@
+﻿@model OperationStepModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Back-Button-OperationStepE {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Operace-adjust-E-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Operace2-adjust-E-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Name-adjust-E-OperationStep{
+        margin-bottom: 5px;
+    }
+
+    .DrawingPosition-adjust-E-OperationStep{
+        margin-bottom: 5px;
+    }
+
+    .Description-adjust-E-OperationStep{
+        margin-bottom: 5px;
+    }
+
+    .Sequence-adjust-E-OperationStep{
+        margin-bottom: 5px;
+    }
+
+    .StandardHour-adjust-E-OperationStep{
+        margin-bottom: 5px;
+    }
+
+    .Diameter-adjust-E-OperationStep{
+        margin-bottom: 5px;
+    }
+
+    .Save-adjust-E-OperationStep {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Edit"]</h1>
+
+<h4>@Localizer["OperationStep"]</h4>
+<hr />
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row w-75">
+        <form asp-action="Edit" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.OperationStep.OperationStepId" />
+
+          <div class="form-group col-md-6">
+            <label for="OperationId">@Localizer["Operation"]</label>
+            <select name="OperationId" id="OperationId" class="form-select Operace-adjust-E-OperationStep">
+                @if(Model.Operations != null)
+                {
+                    @foreach (Operation op in Model.Operations) 
+                    {
+                        if (op.OperationId == Model.OperationStep.OperationId)
+                        {
+                            <!option value="@op.OperationId" selected>@op.OperationNumber</!option>
+                        }
+                        else
+                        {
+                            <!option value="@op.OperationId">@op.OperationNumber</!option>
+                        }
+
+                    }
+                }
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+                <label for="ProductSizeId">@Localizer["Operation"]</label>
+            <select name="ProductSizeId" id="ProductSizeId" class="form-select Operace2-adjust-E-OperationStep">
+                @if(Model.ProductSizes != null)
+                {
+                    @foreach (ProductSize size in Model.ProductSizes) 
+                    {
+                        <!option value="@size.ProductSizeId" @(Model.OperationStep.ProductSizeId == size.ProductSizeId ? "selected" : string.Empty)>@size.Size</!option>
+                    }
+                }
+            </select>
+          </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.OperationStep.Name" class="control-label"></label>
+                <input asp-for="@Model.OperationStep.Name" class="form-control Name-adjust-E-OperationStep" />
+                <span asp-validation-for="@Model.OperationStep.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.OperationStep.DrawingPosition" class="control-label"></label>
+                <input asp-for="@Model.OperationStep.DrawingPosition" class="form-control DrawingPosition-adjust-E-OperationStep" />
+                <span asp-validation-for="@Model.OperationStep.DrawingPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.OperationStep.Description" class="control-label"></label>
+                <input asp-for="@Model.OperationStep.Description" class="form-control Description-adjust-E-OperationStep" />
+                <span asp-validation-for="@Model.OperationStep.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.OperationStep.Sequence" class="control-label"></label>
+                <input asp-for="@Model.OperationStep.Sequence" class="form-control Sequence-adjust-E-OperationStep" />
+                <span asp-validation-for="@Model.OperationStep.Sequence" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.OperationStep.StandardHour" class="control-label"></label>
+                <input asp-for="@Model.OperationStep.StandardHour" class="form-control StandardHour-adjust-E-OperationStep" />
+                <span asp-validation-for="@Model.OperationStep.StandardHour" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.OperationStep.Diameter" class="control-label"></label>
+                <input asp-for="@Model.OperationStep.Diameter" class="form-control Diameter-adjust-E-OperationStep" />
+                <span asp-validation-for="@Model.OperationStep.Diameter" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,56 @@
+﻿@model ProductTypeModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .ProdType-Det-tab {
+        /* width: 300px; */
+        width:1296px;
+        margin-bottom: 5px;
+    }
+
+    .Col-Name-Det-ProdType{
+        font-weight: bold;
+    }
+
+    .Edit-Button-ProductTypeDet {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Back-Button-ProductTypeDet {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+<h1>@Localizer["Details"]</h1>
+
+<div>
+    <h4>@Localizer["ProductType"]</h4>
+    <hr />
+    <table class="table table-striped table-bordered table-sm ProdType-Det-tab">
+        <tr>
+            <th>@Localizer["ColumnName"]</th>
+            <th>@Localizer["ColumnData"]</th>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-ProdType">@Html.DisplayNameFor(model => model.ProductType.Name)</td>
+            <td>@Html.DisplayFor(model => model.ProductType.Name)</td>
+        </tr>
+    </table>
+</div>
+@* <div>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Edit-Button-ProductTypeDet" asp-action="Edit" asp-route-id="@Model?.ProductType.ProductTypeId">Edit</a></button>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Back-Button-ProductTypeDet" asp-action="Index">Back</a></button>
+</div> *@

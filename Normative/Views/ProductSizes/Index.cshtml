@@ -1,0 +1,97 @@
+﻿@* @model IEnumerable<Normative.Models.Settings.ProductSize> *@
+@model PreparationsModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Create-Button-ProductSize {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Edit-Button-ProductSize {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Details-Button-ProductSize {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Delete-Button-ProductSize {
+        text-decoration: none;
+        color: black;
+    }
+
+</style>
+
+@* <h1>@Localizer["Index"]</h1>
+ *@
+<h4 style="font-weight: bold;">@Localizer["ProductSize"]</h4>
+<hr />
+@* <p>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Create-Button-ProductSize" asp-action="Create">Create New</a></button>
+</p> *@
+<table class="table table-striped table-bordered table-sm Prod-Size-tab">
+    <thead>
+        <tr>
+            <th class="text-md-center">@Localizer["Name"]</th>
+            <th class="text-md-center">@Localizer["Size"]</th>
+            <th>@* @Localizer["Options"] *@</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ProductSizes) {
+        <tr>
+            <td class="col-4 text-md-center">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="col-5 text-md-center">
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td colspan="3" class="text-end">
+                    <button class="btn btn-outline-primary"><a class="Edit-Button-ProductSize" asp-action="Edit" asp-route-id="@item.ProductSizeId">@Localizer["Edit"]</a></button>
+                    <button class="btn btn-outline-primary"><a class="Details-Button-ProductSize" asp-action="Details" asp-route-id="@item.ProductSizeId">@Localizer["Details"]</a></button>
+                    <button class="btn btn-outline-danger"><a class="Delete-Button-ProductSize" asp-action="Delete" asp-route-id="@item.ProductSizeId">@Localizer["Delete"]</a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
+<div class="row">
+    <div class="col-10">
+        @Html.PagedListPager(
+                 Model.ProductSizes,
+                 page => Url.Action("Index", new
+                 {
+                     page = page
+                 }),
+                 new PagedListRenderOptions()
+        {
+            LiElementClasses = new List<string> { "page-item page-item" },
+            UlElementClasses = new List<string> { "pagination" },
+            PageClasses = new string[] { "page-link" },
+            MaximumPageNumbersToDisplay = 5,
+        })
+
+    </div>
+    <div class="col-2 text-end">
+        @(Model.ProductSizes.PageCount < Model.ProductSizes.PageNumber ? 0 : Model.ProductSizes.PageNumber) z @Model.ProductSizes.PageCount
+    </div>
+</div>

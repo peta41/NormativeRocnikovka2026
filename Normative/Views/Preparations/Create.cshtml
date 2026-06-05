@@ -1,0 +1,52 @@
+﻿@model PreparationModel
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["Preparation"]</h4>
+<hr />
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row w-75">
+        <form asp-action="create" class="row">
+            <div class="form-group col-md-6">
+                <select name="ProductSize" class="form-select">
+                    @foreach (ProductSize size in Model.ProductSizes)
+                    {
+                        <option value="@size.ProductSizeId">@size.Size</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <select name="PreparationType" class="form-select">
+                    @foreach (PreparationType type in Model.PreparationsType)
+                    {
+                        <option value="@type.Id">@type.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>@Localizer["Welder"]</label>
+                <input name="Welder" type="number" step="0.01" class="form-control" />
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label>@Localizer["Fitter"]</label>
+                <input name="Fitter" type="number" step="0.01" class="form-control" />
+            </div>
+        </form>
+    </div>
+</div>

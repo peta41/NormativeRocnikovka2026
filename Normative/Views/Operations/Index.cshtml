@@ -1,0 +1,104 @@
+﻿@* @model IEnumerable<Operation> *@
+@model OperationModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Create-Button-Operations {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Edit-Button-Operations {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Details-Button-Operations {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Delete-Button-Operations {
+        text-decoration: none;
+        color: black;
+    }
+
+</style>
+
+@* <h1>@Localizer["Index"]</h1> *@
+
+<h4 style="font-weight: bold;">@Localizer["Operation"]</h4>
+<hr />
+@* <p>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Create-Button-Operations" asp-action="Create">Create New</a></button>
+</p> *@
+<table class="table table-striped table-bordered table-sm Operations-tab">
+    <thead>
+        <tr>
+            <th class="text-md-center">@Localizer["OperationNumber"]</th>
+            <th class="text-md-center">@Localizer["OperationDescription"]</th>
+            <th class="text-md-center">@Localizer["WorkCenter"]</th>
+            <th class="text-md-center">@Localizer["ProductLine"]</th>
+            <th class="text-md-center">@Localizer["ProductType"]</th>
+            <th class="text-md-center">@* @Localizer["Options"] *@</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Operations) {
+        <tr>
+            <td class="col-1 text-center">
+                    @Html.DisplayFor(modelItem => item.OperationNumber)
+            </td>
+            <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.OperationDescription)
+            </td>
+            <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.WorkCenter)
+            </td>
+            <td class="col-2  text-center">
+                    @item.ProductLine.Name
+            </td>
+            <td class="col-2 text-center">
+                    @item.ProductType.Name
+            </td>
+            <td colspan="3" class="text-end">
+                    <button class="btn btn-outline-primary"><a class="Edit-Button-Operations" asp-action="Edit" asp-route-id="@item.OperationId">@Localizer["Edit"]</a></button>
+                    <button class="btn btn-outline-primary"><a class="Details-Button-Operations" asp-action="Details" asp-route-id="@item.OperationId">@Localizer["Details"]</a></button>
+                    <button class="btn btn-outline-danger"><a class="Delete-Button-Operations" asp-action="Delete" asp-route-id="@item.OperationId">@Localizer["Delete"]</a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<div class="row">
+    <div class="col-10">
+        @Html.PagedListPager(
+                 Model.Operations,
+                 page => Url.Action("Index", new
+                 {
+                     page = page
+                 }),
+                 new PagedListRenderOptions()
+        {
+            LiElementClasses = new List<string> { "page-item page-item" },
+            UlElementClasses = new List<string> { "pagination" },
+            PageClasses = new string[] { "page-link" },
+            MaximumPageNumbersToDisplay = 5,
+        })
+
+    </div>
+    <div class="col-2 text-end">
+        @(Model.Operations.PageCount < Model.Operations.PageNumber ? 0 : Model.Operations.PageNumber) z @Model.Operations.PageCount
+    </div>
+</div>

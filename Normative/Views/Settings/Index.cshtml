@@ -1,0 +1,110 @@
+﻿@model ToolBar
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", new Navigation())
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model)
+<!-- End Toolbar -->
+
+<div class="container pt-3">
+    <main role="main" class="pt-2 pb-3">
+        <div class="container py-3">
+            <div class="row ps-2 pe-2">
+                <div id="settingsSectionSec">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                                <!-- Card 1 -->
+                                <div class="col">
+                                    <a asp-controller="ProductLines" asp-action="Index" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/ProductLine32.png" class="card-img-top" alt="@Localizer["Product Line"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Product Line"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="col">
+                                    <a asp-controller="ProductSizes" asp-action="Index" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/ProductSizeVT39.png" class="card-img-top" alt="@Localizer["Product Size"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Product Size"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="col">
+                                    <a asp-controller="ProductTypes" asp-action="Index" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/VtTnPipes3D.png" class="card-img-top" alt="@Localizer["Product Types"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Product Types"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Card 4 -->
+                                <div class="col">
+                                    <a asp-controller="Operations" asp-action="Index" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/svareni.png" class="card-img-top" alt="@Localizer["Operation"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Operation"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Card 5 -->
+                                <div class="col">
+                                    <a asp-controller="OperationSteps" asp-action="Index" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/OperationSteps32.png" class="card-img-top" alt="@Localizer["Operation Step"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Operation Step"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- Card 6 -->
+                                <div class="col">
+                                    <a asp-controller="Preparations" asp-action="Index" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/bend.png" class="card-img-top" alt="@Localizer["Preparations"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Preparations"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1 row-cols-md-3 g-4 pt-4 justify-content-center">
+                                <!-- Card 7 -->
+                                <div class="col">
+                                    <a asp-controller="Settings" asp-action="Users" class="text-decoration-none">
+                                        <div class="card h-100">
+                                            <img src="/Images/bend.png" class="card-img-top" alt="@Localizer["Users"]">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">@Localizer["Users"]</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

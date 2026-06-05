@@ -1,0 +1,56 @@
+﻿@model ProductTypeModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Back-Button-ProductTypeCn {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Name-adjust-Cn-Type {
+        margin-bottom: 5px;
+    }
+
+    .Create-adjust-Cn-Type {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["ProductType"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.ProductType.Name" class="control-label"></label>
+                <input asp-for="@Model.ProductType.Name" class="form-control Name-adjust-Cn-Type" />
+                <span asp-validation-for="@Model.ProductType.Name" class="text-danger"></span>
+            </div>
+            @* <div class="form-group Create-adjust-Cn-Type">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div> *@
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Back-Button-ProductTypeCn" asp-action="Index">Back</a></button>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

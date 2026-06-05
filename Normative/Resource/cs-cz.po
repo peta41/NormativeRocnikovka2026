@@ -1,0 +1,782 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-20 11:13+0000\n"
+"PO-Revision-Date: 2025-05-20 11:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: Unknown\n"
+"Language: zxx\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Source-Locale: cs_CZ\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Generator: Loco https://localise.biz/"
+
+# \Components\PersonSelect\PersonSelect.cshtml:27
+# \Components\PersonSelect\PersonSelect.cshtml:49
+# \Components\SelectEx\SelectEx.cshtml:31
+# \Components\SelectEx\SelectEx.cshtml:53
+msgid "Search for names.."
+msgstr "Hledání jmen..."
+
+# \Views\Home\Index.cshtml:25
+msgid "Outher"
+msgstr "Vnější"
+
+# \Views\Home\Index.cshtml:36
+msgid "Inner"
+msgstr "Vnitřní"
+
+# \Views\Home\Index.cshtml:47
+msgid "Pipe"
+msgstr "Potrubí"
+
+# \Views\Home\Index.cshtml:68
+# \Views\Settings\Index.cshtml:82
+msgid "Product Line"
+msgstr "Produktová řada"
+
+# \Views\Home\Index.cshtml:79
+# \Views\Settings\Index.cshtml:93
+msgid "Product Size"
+msgstr "Produktová Velikost"
+
+# \Views\Home\Index.cshtml:90
+# \Views\Settings\Index.cshtml:67
+# \Views\Settings\Index.cshtml:104
+msgid "Product Types"
+msgstr "Produktové Typy"
+
+# \Views\Home\Index.cshtml:101
+# \Views\Operations\Create.cshtml:48
+# \Views\Operations\Delete.cshtml:19
+# \Views\Operations\Details.cshtml:40
+# \Views\Operations\Edit.cshtml:48
+# \Views\Operations\Index.cshtml:48
+# \Views\OperationSteps\Edit.cshtml:69
+# \Views\OperationSteps\Edit.cshtml:90
+# \Views\Preparations\Delete.cshtml:19
+# \Views\Settings\Index.cshtml:115
+msgid "Operation"
+msgstr "Operace"
+
+# \Views\Home\Index.cshtml:112
+# \Views\OperationSteps\Index.cshtml:49
+# \Views\Settings\Index.cshtml:126
+msgid "Operation Step"
+msgstr "Postup Operace"
+
+# \Views\Home\Index.cshtml:123
+# \Views\Preparations\Details.cshtml:40
+# \Views\Preparations\Edit.cshtml:36
+# \Views\Preparations\Index.cshtml:45
+# \Views\Settings\Index.cshtml:58
+# \Views\Settings\Index.cshtml:137
+msgid "Preparations"
+msgstr "Přípravy"
+
+# \Views\Home\Index.cshtml:136
+msgid "Profile"
+msgstr "Profil"
+
+# \Views\Home\Index.cshtml:137
+msgid "This is the profile page"
+msgstr "Tohle je stránka s profiem"
+
+# \Views\Inner\Index.cshtml:32
+# \Views\Inner\Index.cshtml:78
+# \Views\Inner\Index.cshtml:126
+# \Views\Outher\Index.cshtml:30
+# \Views\Outher\Index.cshtml:76
+# \Views\Outher\Index.cshtml:124
+msgid "ORDER"
+msgstr "POŘADÍ"
+
+# \Views\Inner\Index.cshtml:33
+# \Views\Inner\Index.cshtml:79
+# \Views\Inner\Index.cshtml:127
+msgid "WORKPLACE"
+msgstr "PRACOVIŠTĚ"
+
+# \Views\Inner\Index.cshtml:34
+# \Views\Inner\Index.cshtml:80
+# \Views\Inner\Index.cshtml:128
+# \Views\Outher\Index.cshtml:32
+# \Views\Outher\Index.cshtml:78
+# \Views\Outher\Index.cshtml:126
+msgid "PRODUCT LINES(OPERATION TIMES)"
+msgstr "PRODUKTOVÁ ŘADA (OPERAČNÍ ČASY)"
+
+# \Views\Inner\Index.cshtml:35
+# \Views\Inner\Index.cshtml:81
+# \Views\Inner\Index.cshtml:129
+# \Views\Outher\Index.cshtml:33
+# \Views\Outher\Index.cshtml:79
+# \Views\Outher\Index.cshtml:127
+msgid "OPTIONS"
+msgstr "MOŽNOSTI"
+
+# \Views\Inner\Index.cshtml:46
+# \Views\Inner\Index.cshtml:93
+# \Views\Inner\Index.cshtml:141
+# \Views\Outher\Index.cshtml:44
+# \Views\Outher\Index.cshtml:91
+# \Views\Outher\Index.cshtml:139
+msgid "OPTION X"
+msgstr "MOŽNOST X"
+
+# \Views\Inner\Index.cshtml:61
+# \Views\Inner\Index.cshtml:111
+# \Views\Inner\Index.cshtml:159
+# \Views\Outher\Index.cshtml:109
+# \Views\Outher\Index.cshtml:157
+msgid "TOTAL"
+msgstr "CLEKEM"
+
+# \Views\Inner\Index.cshtml:86
+# \Views\Inner\Index.cshtml:134
+# \Views\Outher\Index.cshtml:84
+# \Views\Outher\Index.cshtml:132
+msgid "DRAWING POSITION"
+msgstr "POZICE NA VÝKRESU"
+
+# \Views\Operations\Create.cshtml:46
+# \Views\OperationSteps\Create.cshtml:59
+# \Views\Preparations\Create.cshtml:15
+# \Views\ProductLines\Create.cshtml:30
+# \Views\ProductSizes\Create.cshtml:34
+# \Views\ProductTypes\Create.cshtml:30
+msgid "Create"
+msgstr "Vytvořit"
+
+# \Views\Operations\Delete.cshtml:15
+# \Views\Operations\Index.cshtml:85
+# \Views\OperationSteps\Delete.cshtml:15
+# \Views\OperationSteps\Index.cshtml:102
+# \Views\Preparations\Delete.cshtml:15
+# \Views\Preparations\Index.cshtml:75
+# \Views\ProductLines\Delete.cshtml:15
+# \Views\ProductLines\Index.cshtml:80
+# \Views\ProductSizes\Delete.cshtml:15
+# \Views\ProductSizes\Index.cshtml:73
+# \Views\ProductTypes\Delete.cshtml:15
+# \Views\ProductTypes\Index.cshtml:70
+msgid "Delete"
+msgstr "Smazat"
+
+# \Views\Operations\Delete.cshtml:17
+# \Views\OperationSteps\Delete.cshtml:17
+# \Views\Preparations\Delete.cshtml:17
+# \Views\ProductLines\Delete.cshtml:17
+# \Views\ProductSizes\Delete.cshtml:17
+# \Views\ProductTypes\Delete.cshtml:17
+msgid "Are you sure you want to delete this?"
+msgstr "Opravdu chcete toto smazat?"
+
+# \Views\Operations\Delete.cshtml:23
+msgid "ColunName"
+msgstr "Název Sloupce"
+
+# \Views\Operations\Delete.cshtml:24
+msgid "ColunData"
+msgstr "Data Sloupce"
+
+# \Views\Operations\Details.cshtml:37
+# \Views\Operations\Index.cshtml:84
+# \Views\OperationSteps\Details.cshtml:37
+# \Views\OperationSteps\Index.cshtml:101
+# \Views\Preparations\Details.cshtml:37
+# \Views\Preparations\Index.cshtml:74
+# \Views\ProductLines\Details.cshtml:37
+# \Views\ProductLines\Index.cshtml:79
+# \Views\ProductSizes\Details.cshtml:37
+# \Views\ProductSizes\Index.cshtml:72
+# \Views\ProductTypes\Details.cshtml:37
+# \Views\ProductTypes\Index.cshtml:69
+msgid "Details"
+msgstr "Detaily"
+
+# \Views\Operations\Details.cshtml:44
+# \Views\OperationSteps\Delete.cshtml:23
+# \Views\OperationSteps\Details.cshtml:44
+# \Views\Preparations\Delete.cshtml:23
+# \Views\Preparations\Details.cshtml:44
+# \Views\ProductLines\Delete.cshtml:23
+# \Views\ProductLines\Details.cshtml:44
+# \Views\ProductSizes\Delete.cshtml:23
+# \Views\ProductSizes\Details.cshtml:44
+# \Views\ProductTypes\Delete.cshtml:23
+# \Views\ProductTypes\Details.cshtml:44
+msgid "ColumnName"
+msgstr "Název Sloupce"
+
+# \Views\Operations\Details.cshtml:45
+# \Views\OperationSteps\Delete.cshtml:24
+# \Views\OperationSteps\Details.cshtml:45
+# \Views\Preparations\Delete.cshtml:24
+# \Views\Preparations\Details.cshtml:45
+# \Views\ProductLines\Delete.cshtml:24
+# \Views\ProductSizes\Delete.cshtml:24
+# \Views\ProductSizes\Details.cshtml:45
+# \Views\ProductTypes\Delete.cshtml:24
+# \Views\ProductTypes\Details.cshtml:45
+msgid "ColumnData"
+msgstr "Data Sloupce"
+
+# \Views\Operations\Edit.cshtml:46
+# \Views\Operations\Index.cshtml:83
+# \Views\OperationSteps\Edit.cshtml:58
+# \Views\OperationSteps\Index.cshtml:100
+# \Views\Preparations\Edit.cshtml:34
+# \Views\Preparations\Index.cshtml:73
+# \Views\ProductLines\Edit.cshtml:30
+# \Views\ProductLines\Index.cshtml:78
+# \Views\ProductSizes\Edit.cshtml:34
+# \Views\ProductSizes\Index.cshtml:71
+# \Views\ProductTypes\Edit.cshtml:30
+# \Views\ProductTypes\Index.cshtml:68
+# \Views\Settings\Roles.cshtml:83
+# \Views\Settings\Roles\_Edit.cshtml:8
+msgid "Edit"
+msgstr "Upravit"
+
+# \Views\Operations\Index.cshtml:46
+# \Views\OperationSteps\Index.cshtml:47
+# \Views\Preparations\Index.cshtml:43
+# \Views\ProductLines\Index.cshtml:56
+# \Views\ProductSizes\Index.cshtml:46
+# \Views\ProductTypes\Index.cshtml:47
+msgid "Index"
+msgstr "Index"
+
+# \Views\Operations\Index.cshtml:56
+msgid "OperationNumber"
+msgstr "ČísloOperace"
+
+# \Views\Operations\Index.cshtml:57
+msgid "OperationDescription"
+msgstr "Popis Operace"
+
+# \Views\Operations\Index.cshtml:58
+msgid "WorkCenter"
+msgstr "Pracovní Centrum"
+
+# \Views\Operations\Index.cshtml:59
+# \Views\ProductLines\Create.cshtml:32
+# \Views\ProductLines\Delete.cshtml:19
+# \Views\ProductLines\Details.cshtml:40
+# \Views\ProductLines\Edit.cshtml:32
+# \Views\ProductLines\Index.cshtml:58
+msgid "ProductLine"
+msgstr "Produktová Řada"
+
+# \Views\Operations\Index.cshtml:60
+# \Views\ProductTypes\Create.cshtml:32
+# \Views\ProductTypes\Delete.cshtml:19
+# \Views\ProductTypes\Details.cshtml:40
+# \Views\ProductTypes\Edit.cshtml:32
+# \Views\ProductTypes\Index.cshtml:49
+msgid "ProductType"
+msgstr "Produktový typ"
+
+# \Views\Operations\Index.cshtml:61
+# \Views\OperationSteps\Index.cshtml:69
+# \Views\Preparations\Index.cshtml:58
+# \Views\ProductLines\Index.cshtml:67
+# \Views\ProductSizes\Index.cshtml:58
+# \Views\ProductTypes\Index.cshtml:58
+msgid "Options"
+msgstr "Možnosti"
+
+# \Views\OperationSteps\Create.cshtml:61
+# \Views\OperationSteps\Delete.cshtml:19
+# \Views\OperationSteps\Details.cshtml:40
+# \Views\OperationSteps\Edit.cshtml:60
+msgid "OperationStep"
+msgstr "Postup Operace"
+
+# \Views\OperationSteps\Index.cshtml:63
+# \Views\Preparations\Index.cshtml:55
+# \Views\ProductLines\Index.cshtml:66
+# \Views\ProductSizes\Index.cshtml:56
+# \Views\ProductTypes\Index.cshtml:57
+# \Views\Settings\Permissions.cshtml:38
+# \Views\Settings\Permissions.cshtml:46
+# \Views\Settings\Roles.cshtml:40
+# \Views\Settings\Roles\_Edit.cshtml:18
+msgid "Name"
+msgstr "Název"
+
+# \Views\OperationSteps\Index.cshtml:64
+msgid "DrawingPosition"
+msgstr "Pozice na výkresu"
+
+# \Views\OperationSteps\Index.cshtml:65
+# \Views\Settings\Permissions.cshtml:41
+# \Views\Settings\Roles.cshtml:45
+# \Views\Settings\Roles\_Create.cshtml:21
+# \Views\Settings\Roles\_Edit.cshtml:23
+msgid "Description"
+msgstr "Popis"
+
+# \Views\OperationSteps\Index.cshtml:66
+msgid "Sequence"
+msgstr "Sekvence"
+
+# \Views\OperationSteps\Index.cshtml:67
+msgid "StandardHour"
+msgstr "Standardní čas"
+
+# \Views\OperationSteps\Index.cshtml:68
+msgid "Diameter"
+msgstr "Průměr"
+
+# \Views\Outher\Index.cshtml:16
+msgid "OP10"
+msgstr "OP10"
+
+# \Views\Outher\Index.cshtml:19
+msgid "OP20"
+msgstr "OP20"
+
+# \Views\Outher\Index.cshtml:22
+msgid "OP40"
+msgstr "OP40"
+
+# \Views\Outher\Index.cshtml:31
+# \Views\Outher\Index.cshtml:77
+# \Views\Outher\Index.cshtml:125
+# \Views\Pipe\index.cshtml:1106
+msgid "OPERATION"
+msgstr "OPERACE"
+
+# \Views\Pipe\index.cshtml:64
+msgid "Adjust Values"
+msgstr "Upravit Hodnoty"
+
+# \Views\Pipe\index.cshtml:92
+msgid "Between Calculations"
+msgstr "Mezi výpočty"
+
+# \Views\Pipe\index.cshtml:95
+msgid "Results"
+msgstr "Výsledky"
+
+# \Views\Pipe\index.cshtml:120
+# \Views\Pipe\index.cshtml:125
+# \Views\Pipe\index.cshtml:247
+# \Views\Pipe\index.cshtml:252
+# \Views\Pipe\index.cshtml:402
+# \Views\Pipe\index.cshtml:407
+# \Views\Pipe\index.cshtml:575
+# \Views\Pipe\index.cshtml:581
+msgid "Drawing"
+msgstr "Výkres"
+
+# \Views\Pipe\index.cshtml:132
+# \Views\Pipe\index.cshtml:139
+# \Views\Pipe\index.cshtml:259
+# \Views\Pipe\index.cshtml:267
+# \Views\Pipe\index.cshtml:414
+# \Views\Pipe\index.cshtml:421
+# \Views\Pipe\index.cshtml:588
+# \Views\Pipe\index.cshtml:596
+# \Views\Preparations\Index.cshtml:54
+# \Views\ProductSizes\Index.cshtml:57
+msgid "Size"
+msgstr "Velikost"
+
+# \Views\Pipe\index.cshtml:148
+# \Views\Pipe\index.cshtml:277
+# \Views\Pipe\index.cshtml:430
+# \Views\Pipe\index.cshtml:605
+msgid "Number of brackets per set"
+msgstr "Počet držáků sady"
+
+# \Views\Pipe\index.cshtml:160
+# \Views\Pipe\index.cshtml:290
+# \Views\Pipe\index.cshtml:618
+msgid "Brackets positioning"
+msgstr "Rozložení držáků"
+
+# \Views\Pipe\index.cshtml:167
+# \Views\Pipe\index.cshtml:298
+# \Views\Pipe\index.cshtml:449
+# \Views\Pipe\index.cshtml:626
+msgid "Brackets welding"
+msgstr "Vaření držáků"
+
+# \Views\Pipe\index.cshtml:176
+# \Views\Pipe\index.cshtml:182
+# \Views\Pipe\index.cshtml:308
+# \Views\Pipe\index.cshtml:314
+# \Views\Pipe\index.cshtml:458
+# \Views\Pipe\index.cshtml:464
+# \Views\Pipe\index.cshtml:635
+# \Views\Pipe\index.cshtml:642
+# \Views\Pipe\index.cshtml:1071
+msgid "BRANCH"
+msgstr "VĚTEV"
+
+# \Views\Pipe\index.cshtml:177
+# \Views\Pipe\index.cshtml:183
+# \Views\Pipe\index.cshtml:309
+# \Views\Pipe\index.cshtml:315
+# \Views\Pipe\index.cshtml:459
+# \Views\Pipe\index.cshtml:465
+# \Views\Pipe\index.cshtml:636
+# \Views\Pipe\index.cshtml:643
+# \Views\Pipe\index.cshtml:1072
+msgid "DIAMETER"
+msgstr "PRŮMĚR"
+
+# \Views\Pipe\index.cshtml:178
+# \Views\Pipe\index.cshtml:184
+# \Views\Pipe\index.cshtml:310
+# \Views\Pipe\index.cshtml:316
+# \Views\Pipe\index.cshtml:460
+# \Views\Pipe\index.cshtml:466
+# \Views\Pipe\index.cshtml:637
+# \Views\Pipe\index.cshtml:644
+# \Views\Pipe\index.cshtml:1073
+msgid "DRAWING POSITION (OPTION)"
+msgstr "POZICE NA VÝKRESE(MOŽNOST)"
+
+# \Views\Pipe\index.cshtml:223
+# \Views\Pipe\index.cshtml:376
+# \Views\Pipe\index.cshtml:547
+# \Views\Pipe\index.cshtml:724
+# \Views\Pipe\index.cshtml:1031
+msgid "BOILERMAKER"
+msgstr "KOTLÁŘ"
+
+# \Views\Pipe\index.cshtml:227
+# \Views\Pipe\index.cshtml:381
+# \Views\Pipe\index.cshtml:553
+# \Views\Pipe\index.cshtml:731
+# \Views\Pipe\index.cshtml:1032
+msgid "WELDER"
+msgstr "SVÁŘEČ"
+
+# \Views\Pipe\index.cshtml:442
+msgid "Braclets positioning"
+msgstr "Rozložení držáků"
+
+# \Views\Pipe\index.cshtml:747
+msgid "Bending:"
+msgstr "Ohýbání:"
+
+# \Views\Pipe\index.cshtml:751
+msgid "USED DIAMETERS"
+msgstr "POUŽITÉ PRŮMĚRY"
+
+# \Views\Pipe\index.cshtml:757
+msgid ".oth"
+msgstr ".ost"
+
+# \Views\Pipe\index.cshtml:762
+msgid "Number of used diameters"
+msgstr "Počet použitých průměrů"
+
+# \Views\Pipe\index.cshtml:771
+msgid "Number of bendings"
+msgstr "Počet ohybů"
+
+# \Views\Pipe\index.cshtml:780
+msgid "Options:"
+msgstr "Možnosti:"
+
+# \Views\Pipe\index.cshtml:784
+msgid "RESET OPTIONS"
+msgstr "RESETOVAT MOŽNOSTI"
+
+# \Views\Pipe\index.cshtml:792
+msgid "PUMP OUTLET COVER"
+msgstr "KRYT VÝVODU ČERPADLA"
+
+# \Views\Pipe\index.cshtml:795
+# \Views\Pipe\index.cshtml:1075
+msgid "BENDS"
+msgstr "OHYBY"
+
+# \Views\Pipe\index.cshtml:800
+msgid "Selected option"
+msgstr "Vybraná možnost"
+
+# \Views\Pipe\index.cshtml:823
+# \Views\Pipe\index.cshtml:916
+msgid "X411 COOLING LOOP"
+msgstr "X411 CHLADÍCÍ SMYČKA"
+
+# \Views\Pipe\index.cshtml:828
+msgid "PREPARATON"
+msgstr "PŘÍPRAVA"
+
+# \Views\Pipe\index.cshtml:834
+# \Views\Pipe\index.cshtml:926
+# \Views\Pipe\index.cshtml:1025
+msgid "Tank size"
+msgstr "Velikost zásobníku"
+
+# \Views\Pipe\index.cshtml:848
+msgid "set layout"
+msgstr "rozložení sady"
+
+# \Views\Pipe\index.cshtml:853
+# \Views\Pipe\index.cshtml:944
+msgid "Selected size"
+msgstr "Vybraná velikost"
+
+# \Views\Pipe\index.cshtml:1008
+msgid "Preparation:"
+msgstr "Příprava:"
+
+# \Views\Pipe\index.cshtml:1013
+msgid "PREPARATION"
+msgstr "PŘÍPRAVA"
+
+# \Views\Pipe\index.cshtml:1020
+msgid "X411 cooling loop"
+msgstr "X411 chladící smyčka"
+
+# \Views\Pipe\index.cshtml:1030
+msgid "Field"
+msgstr "Zaměření"
+
+# \Views\Pipe\index.cshtml:1051
+# \Views\Pipe\index.cshtml:1074
+msgid "BRACKETS"
+msgstr "Držáky"
+
+# \Views\Pipe\index.cshtml:1052
+msgid "pieces"
+msgstr "kusy"
+
+# \Views\Pipe\index.cshtml:1053
+msgid "boilermaker"
+msgstr "kotlář"
+
+# \Views\Pipe\index.cshtml:1056
+msgid "Bracket welding, tack weld the joint"
+msgstr "Svařeni objímky, steh spoje"
+
+# \Views\Pipe\index.cshtml:1067
+msgid "Between table"
+msgstr "Mezi tabulka"
+
+# \Views\Pipe\index.cshtml:1092
+msgid "TOTAL:"
+msgstr "CELKEM:"
+
+# \Views\Pipe\index.cshtml:1107
+msgid "FIELD"
+msgstr "Zaměření"
+
+# \Views\Pipe\index.cshtml:1108
+msgid "TIME [min]"
+msgstr "ČAS [min]"
+
+# \Views\Pipe\index.cshtml:1109
+msgid "TIME [h]"
+msgstr "ČAS [hod]"
+
+# \Views\Pipe\index.cshtml:1115
+msgid "Bending"
+msgstr "Ohýbání"
+
+# \Views\Pipe\index.cshtml:1121
+msgid "Boilermaker"
+msgstr "Kotlář"
+
+# \Views\Pipe\index.cshtml:1127
+msgid "Welding"
+msgstr "Sváření"
+
+# \Views\Preparations\Create.cshtml:17
+msgid "Preparation"
+msgstr "Příprava"
+
+# \Views\Preparations\Create.cshtml:41
+# \Views\Preparations\Edit.cshtml:81
+# \Views\Preparations\Index.cshtml:57
+msgid "Welder"
+msgstr "Svářeč"
+
+# \Views\Preparations\Create.cshtml:47
+# \Views\Preparations\Edit.cshtml:86
+# \Views\Preparations\Index.cshtml:56
+msgid "Fitter"
+msgstr "Plnič"
+
+# \Views\Preparations\Index.cshtml:53
+msgid "Diameter Line"
+msgstr "Průměrová řada"
+
+# \Views\ProductLines\Create.cshtml:42
+msgid "This field is required"
+msgstr "Toto pole je povinné"
+
+# \Views\ProductLines\Details.cshtml:45
+msgid "Data"
+msgstr "Data"
+
+# \Views\ProductSizes\Create.cshtml:36
+# \Views\ProductSizes\Delete.cshtml:19
+# \Views\ProductSizes\Details.cshtml:40
+# \Views\ProductSizes\Edit.cshtml:36
+# \Views\ProductSizes\Index.cshtml:48
+msgid "ProductSize"
+msgstr "Produktová velikost"
+
+# \Views\ProductTypes\Edit.cshtml:39
+msgid "Product Type"
+msgstr "Produktový typ"
+
+# \Views\Settings\Claims.cshtml:24
+# \Views\Settings\Index.cshtml:25
+# \Views\Settings\Permissions.cshtml:25
+# \Views\Settings\Roles.cshtml:27
+# \Views\Settings\Users.cshtml:25
+msgid "Home"
+msgstr "Domů"
+
+# \Views\Settings\Claims.cshtml:25
+# \Views\Settings\Index.cshtml:26
+# \Views\Settings\Permissions.cshtml:7
+# \Views\Settings\Permissions.cshtml:26
+# \Views\Settings\Roles.cshtml:8
+# \Views\Settings\Roles.cshtml:28
+# \Views\Settings\Users.cshtml:6
+# \Views\Settings\Users.cshtml:26
+# \Views\Shared\_Header.cshtml:65
+msgid "Settings"
+msgstr "Nastavení"
+
+# \Views\Settings\Claims.cshtml:26
+msgid "Claims"
+msgstr "Moje oprávnění"
+
+# \Views\Settings\Index.cshtml:32
+# \Views\Settings\Index.cshtml:34
+# \Views\Settings\Users.cshtml:27
+# \Views\Settings\Users.cshtml:31
+# \Views\Shared\_Header.cshtml:66
+msgid "Users"
+msgstr "Uživatelé"
+
+# \Views\Settings\Index.cshtml:37
+# \Views\Settings\Roles.cshtml:29
+# \Views\Shared\_Header.cshtml:67
+msgid "Roles"
+msgstr "Role"
+
+# \Views\Settings\Index.cshtml:40
+# \Views\Settings\Permissions.cshtml:27
+# \Views\Shared\_Header.cshtml:68
+msgid "Permissions"
+msgstr "Oprávnění"
+
+# \Views\Settings\Index.cshtml:43
+# \Views\Shared\_Header.cshtml:71
+msgid "My Permissions"
+msgstr "Moje Oprávnění"
+
+# \Views\Settings\Index.cshtml:50
+msgid "Tables"
+msgstr "Tabulky"
+
+# \Views\Settings\Index.cshtml:52
+msgid "Operations"
+msgstr "Operace"
+
+# \Views\Settings\Index.cshtml:55
+msgid "Operation Steps"
+msgstr "Kroky Operace"
+
+# \Views\Settings\Index.cshtml:61
+msgid "Product Lines"
+msgstr "Produktové řady"
+
+# \Views\Settings\Index.cshtml:64
+msgid "Product Sizes"
+msgstr "Produktové velikosti"
+
+# \Views\Settings\Permissions.cshtml:49
+msgid "Value"
+msgstr "Hodnota"
+
+# \Views\Settings\Roles.cshtml:50
+msgid "Created"
+msgstr "Vytvořeno"
+
+# \Views\Settings\Roles.cshtml:55
+msgid "Active"
+msgstr "Aktivní"
+
+# \Views\Settings\Roles.cshtml:111
+# \Views\Settings\Users.cshtml:96
+msgid "of"
+msgstr "of"
+
+# \Views\Settings\Users.cshtml:40
+msgid "Display Name"
+msgstr "Jméno"
+
+# \Views\Settings\Users.cshtml:48
+msgid "UserName"
+msgstr "Uživatelské Jméno"
+
+# \Views\Settings\Users.cshtml:54
+msgid "Email"
+msgstr "Email"
+
+# \Views\Settings\Roles\_Create.cshtml:8
+msgid "New"
+msgstr "Nový"
+
+# \Views\Settings\Roles\_Create.cshtml:26
+# \Views\Settings\Roles\_Edit.cshtml:43
+msgid "Save"
+msgstr "Uložit"
+
+# \Views\Settings\Roles\_Edit.cshtml:28
+msgid "Status"
+msgstr "Status"
+
+# \Views\Settings\Roles\_Edit.cshtml:32
+msgid "Disable"
+msgstr "Vypnout"
+
+# \Views\Settings\Roles\_Edit.cshtml:33
+msgid "Enable"
+msgstr "Zapnout"
+
+# \Views\Shared\_Header.cshtml:14
+msgid "Toggle navigation"
+msgstr "Zapnout navigaci"
+
+# \Views\Shared\_Header.cshtml:30
+msgid "What you're looking for?"
+msgstr "Co hledáte?"
+
+# \Views\Shared\_Header.cshtml:33
+msgid "Search"
+msgstr "Hledat"
+
+# \Views\Shared\_Header.cshtml:36
+msgid "Show filters setting"
+msgstr "Ukázat filtry nastavení"
+
+# \Views\Shared\_Header.cshtml:38
+msgid "Show all records"
+msgstr "Ukázat všechny záznamy"
+
+# \Views\Shared\_Toolbar.cshtml:24
+msgid "Cancel filter"
+msgstr "Zrušit filtr"
+
+msgid "Back"
+msgstr "Zpět"

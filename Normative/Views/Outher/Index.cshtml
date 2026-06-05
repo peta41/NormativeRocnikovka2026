@@ -1,0 +1,308 @@
+﻿@model OutherVessel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">@Localizer["OP10"]</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">@Localizer["OP20"]</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">@Localizer["OP40"]</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th style="text-align:center">@Localizer["ORDER"]</th>
+                    <th style="text-align:center">@Localizer["OPERATION"]</th>
+                    <th colspan="4" style="text-align:center">@Localizer["PRODUCT LINES(OPERATION TIMES)"]</th>
+                    <th style="text-align:center">@Localizer["OPTIONS"]</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td></td>
+                <td class="fw-bold" style="text-align:center">OP.10</td>
+                <td class="fw-bold" style="text-align:center">D1800</td>
+                <td class="fw-bold" style="text-align:center">D2100</td>
+                <td class="fw-bold" style="text-align:center">D2500</td>
+                <td class="fw-bold" style="text-align:center">D3000</td>
+                <td class="fw-bold" style="text-align:center">@Localizer["OPTION X"]</td>
+            </tr>
+            @foreach (V_VTC_OutherVessel_OPSQ_10 row in Model.Op10)
+            {
+                <tr>
+                    <td class="fw-bold" style="text-align:center">@row.Sequence</td>
+                    <td class="fw-bold">@row.NameOperationStep</td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="A1" data-value="@row.D1800" aria-pressed="false">@row.D1800</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="A2" data-value="@row.D2100" aria-pressed="false">@row.D2100</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="A3" data-value="@row.D2500" aria-pressed="false">@row.D2500</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="A4" data-value="@row.D3000" aria-pressed="false">@row.D3000</button></td>
+                    <td class="fw-bold" style="text-align:center">@row.Option</td>
+                </tr>
+            }
+            <tr>
+                <td class="fw-bold" colspan="2" style="text-align:center">CELKEM</td>
+                <td class="fw-bold" style="text-align:center"><span id="A1totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="A2totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="A3totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="A4totalValue">0</span></td>
+                <td></td>
+            </tr>     
+        </table>
+    </div>
+    
+   
+
+ <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style="text-align:center">@Localizer["ORDER"]</th>
+                    <th style="text-align:center">@Localizer["OPERATION"]</th>
+                    <th colspan="4" style="text-align:center">@Localizer["PRODUCT LINES(OPERATION TIMES)"]</th>
+                    <th style="text-align:center">@Localizer["OPTIONS"]</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td class="fw-bold" style="text-align:center">@Localizer["DRAWING POSITION"]</td>
+                <td></td>
+                <td class="fw-bold" style="text-align:center">OP.20</td>
+                <td class="fw-bold" style="text-align:center">D1800</td>
+                <td class="fw-bold" style="text-align:center">D2100</td>
+                <td class="fw-bold" style="text-align:center">D2500</td>
+                <td class="fw-bold" style="text-align:center">D3000</td>
+                <td class="fw-bold" style="text-align:center">@Localizer["OPTION X"]</td>
+            </tr>
+            @foreach (V_VTC_OutherVessel_OPSQ_20 row in Model.Op20)
+            {
+                <tr>
+                    <td class="fw-bold" style="text-align:center">@row.DrawingPosition</td>
+                    <td class="fw-bold" style="text-align:center">@row.Sequence</td>
+                    <td class="fw-bold">@row.NameOperationStep</td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="B1" data-value="@row.D1800" aria-pressed="false">@row.D1800</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="B2" data-value="@row.D2100" aria-pressed="false">@row.D2100</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="B3" data-value="@row.D2500" aria-pressed="false">@row.D2500</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="B4" data-value="@row.D3000" aria-pressed="false">@row.D3000</button></td>
+                    <td class="fw-bold" style="text-align:center">@row.Option</td>
+                </tr>
+            }
+
+            <tr>
+                <td></td>
+                <td class="fw-bold" colspan="2" style="text-align:center">@Localizer["TOTAL"]</td>
+                <td class="fw-bold" style="text-align:center"><span id="B1totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="B2totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="B3totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="B4totalValue">0</span></td>
+                <td></td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style="text-align:center">@Localizer["ORDER"]</th>
+                    <th style="text-align:center">@Localizer["OPERATION"]</th>
+                    <th colspan="4" style="text-align:center">@Localizer["PRODUCT LINES(OPERATION TIMES)"]</th>
+                    <th style="text-align:center">@Localizer["OPTIONS"]</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td class="fw-bold" style="text-align:center">@Localizer["DRAWING POSITION"]</td>
+                <td></td>
+                <td class="fw-bold" style="text-align:center">OP.40</td>
+                <td class="fw-bold" style="text-align:center">D1800</td>
+                <td class="fw-bold" style="text-align:center">D2100</td>
+                <td class="fw-bold" style="text-align:center">D2500</td>
+                <td class="fw-bold" style="text-align:center">D3000</td>
+                <td class="fw-bold" style="text-align:center">@Localizer["OPTION X"]</td>
+            </tr>
+            @foreach (V_VTC_OutherVessel_OPSQ_40 row in Model.Op40)
+            {
+                <tr>
+                    <td class="fw-bold" style="text-align:center">@row.DrawingPosition</td>
+                    <td class="fw-bold" style="text-align:center">@row.Sequence</td>
+                    <td class="fw-bold">@row.NameOperationStep</td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="C1" data-value="@row.D1800" aria-pressed="false">@row.D1800</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="C2" data-value="@row.D2100" aria-pressed="false">@row.D2100</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="C3" data-value="@row.D2500" aria-pressed="false">@row.D2500</button></td>
+                    <td><button type="button" class="btn btn-outline-primary w-100 me-1" data-bs-toggle="button" data-part-col="C4" data-value="@row.D3000" aria-pressed="false">@row.D3000</button></td>
+                    <td class="fw-bold" style="text-align:center">@row.Option</td>
+                </tr>
+            }
+
+            <tr>
+                <td></td>
+                <td class="fw-bold" colspan="2" style="text-align:center">@Localizer["TOTAL"]</td>
+                <td class="fw-bold" style="text-align:center"><span id="C1totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="C2totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="C3totalValue">0</span></td>
+                <td class="fw-bold" style="text-align:center"><span id="C4totalValue">0</span></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+    @section Scripts {
+
+
+        <script> //upravit
+            $(function () {
+                // if any button is clicked
+                $("button[data-value]").on("click", function () {
+
+                    var A1total = 0;
+                    var A2total = 0
+                    var A3total = 0;
+                    var A4total = 0;
+                    //sekce2
+                    var B1total = 0;
+                    var B2total = 0
+                    var B3total = 0;
+                    var B4total = 0;
+                    //sekce3
+                    var C1total = 0;
+                    var C2total = 0
+                    var C3total = 0;
+                    var C4total = 0;
+
+
+                    // take only selected button
+                    $("button[data-value][aria-pressed='true']").each(function () {
+                        let partCol = $(this).attr("data-part-col");
+                        let value = parseFloat($(this).attr("data-value"));
+
+                        switch (partCol) {
+                            //sekce1
+                            case "A1":
+                                A1total += value;
+                                break;
+                            case "A2":
+                                A2total += value;
+                                break;
+                            case "A3":
+                                A3total += value;
+                                break;
+                            case "A4":
+                                A4total += value;
+                                break;
+                            //sekce2
+                            case "B1":
+                                B1total += value;
+                                break;
+                            case "B2":
+                                B2total += value;
+                                break;
+                            case "B3":
+                                B3total += value;
+                                break;
+                            case "B4":
+                                B4total += value;
+                                break;
+                            //sekce3
+                            case "C1":
+                                C1total += value;
+                                break;
+                            case "C2":
+                                C2total += value;
+                                break;
+                            case "C3":
+                                C3total += value;
+                                break;
+                            case "C4":
+                                C4total += value;
+                                break;
+                        }
+                    });
+                    //sekce1
+                    $("#A1totalValue").text(A1total);
+                    $("#A2totalValue").text(A2total);
+                    $("#A3totalValue").text(A3total);
+                    $("#A4totalValue").text(A4total);
+                    //sekce2
+                    $("#B1totalValue").text(B1total);
+                    $("#B2totalValue").text(B2total);
+                    $("#B3totalValue").text(B3total);
+                    $("#B4totalValue").text(B4total);
+                    //sekce3
+                    $("#C1totalValue").text(C1total);
+                    $("#C2totalValue").text(C2total);
+                    $("#C3totalValue").text(C3total);
+                    $("#C4totalValue").text(C4total);
+                });
+
+                //select column function
+                // $('button[data-part-col]').on('click', function () {
+                //     var selectedDataCol = $(this).attr('data-part-col');
+
+                //     //disable columns
+                //     $('[data-part-col]').each(function () {
+                //         var col = $(this).attr('data-part-col');
+                //         if (col !== selectedDataCol) {
+                //             $(this).prop('disabled', true);
+                //         } else {
+                //             $(this).prop('disabled', false);
+                //         }
+                //     });
+                // });
+
+                $('button[data-part-col]').on('click', function () {
+                    const selectedDataCol = $(this).attr('data-part-col');
+                    $(this).toggleClass('selected');
+
+                    const anySelected = $('button.selected').length > 0;
+
+                    if (anySelected) {
+                        const activeCol = $('button.selected').first().attr('data-part-col');
+
+                        $('[data-part-col]').each(function () {
+                            const col = $(this).attr('data-part-col');
+                            $(this).prop('disabled', col !== activeCol);
+                        });
+
+                        const buttonsInCol = $(`button[data-part-col="${activeCol}"]`);
+                        const selectedInCol = buttonsInCol.filter('.selected');
+
+                        if (selectedInCol.length === 0) {
+                            $('[data-part-col]').prop('disabled', false);
+                        }
+                    } else {
+                        $('[data-part-col]').prop('disabled', false);
+                    }
+                });
+
+
+
+            });
+        </script>
+    }
+
+    
+</div>
+
+
+
+
+
+

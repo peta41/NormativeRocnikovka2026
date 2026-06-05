@@ -1,0 +1,83 @@
+﻿@model ProductLineModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Back-Button-ProductLineCn {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Name-adjust-Cn-Line {
+        margin-bottom: 5px;
+    }
+
+    .Create-adjust-Cn-Line {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["ProductLine"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" class="needs-validation" id="myform">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.ProductLine.Name" class="control-label"></label>
+                <input asp-for="@Model.ProductLine.Name" class="form-control Name-adjust-Cn-Line" required /> @* req *@
+                <div class="invalid-feedback">
+                    @Localizer["This field is required"]
+                </div>
+            </div>
+            <div class="form-group Create-adjust-Cn-Line">
+                <input type="submit" id="btn-" value="Create" class="d-none" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        function Save(){
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            Array.from(forms).forEach(form => {
+                //form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+
+                if (form.checkValidity()) {
+                    document.getElementById('myform').submit();
+                }
+                //}, false)
+            });
+
+        }
+
+
+
+    </script>
+    
+
+}

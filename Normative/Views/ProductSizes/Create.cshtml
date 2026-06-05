@@ -1,0 +1,59 @@
+﻿@model PreparationsModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Back-Button-ProductSizeCn {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Name-adjust-Cn-Size {
+        margin-bottom: 5px;
+    }
+
+    .Size-adjust-Cn-Size {
+        margin-bottom: 5px;
+    }
+
+    .Create-adjust-Cn-Size {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["ProductSize"]</h4>
+<hr />
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row w-75">
+        <form asp-action="Create" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.ProductSize.Name" class="control-label"></label>
+                <input asp-for="@Model.ProductSize.Name" class="form-control Name-adjust-Cn-Size" />
+                <span asp-validation-for="@Model.ProductSize.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.ProductSize.Size" class="control-label"></label>
+                <input asp-for="@Model.ProductSize.Size" class="form-control Size-adjust-Cn-Size" />
+                <span asp-validation-for="@Model.ProductSize.Size" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

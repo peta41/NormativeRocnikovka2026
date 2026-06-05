@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model Components.ModelPerson
+
+@if(Model != null)
+{
+    <div class="mb-3">
+
+        @if (!string.IsNullOrEmpty(Model.DisplayName))
+        {
+            @if (@Model.IsRequired)
+            {
+                <span class='text-danger'>*</span>
+            }
+            <label class="form-label">@Localizer[Model.DisplayName]</label>
+        }
+        
+        @if (Model.Enable == true) {
+
+            // Generate a new unique ID
+            Guid uniqueId = Guid.NewGuid();
+
+            // Convert the unique ID to a string
+            string uniqueIdString = "p" + uniqueId.ToString().Split('-')[0];
+
+            <input type="text" class="form-control person-select" data-guid="@uniqueIdString" data-name="@Model.Code" id="@uniqueIdString-visible" data-init="false" list="autocompleteOff" aria-autocomplete="none"
+                   placeholder='@Localizer["Search for names.."]' autocomplete="new-user-email" value="@(Model.DefaultValue != null ? @Model.Rows.Where(w=>w.Email.ToLower() == Model.DefaultValue.ToLower()).Select(s=>s.Name).FirstOrDefault() : "")"
+            @(Model.IsRequired ? "required" : "") @(Model.Enable == true ? "" : "readonly")>
+            <input type="hidden" name="@Model.Code" id="@uniqueIdString-hidden"
+                   value='@(Model.DefaultValue != null ? @Model.Rows.Where(w=>w.Email.ToLower() == Model.DefaultValue.ToLower()).Select(s=>s.Id).FirstOrDefault() : "")'>
+
+            <div class="position-relative text-start">
+                <div class="position-dropdown d-none" id="@uniqueIdString-suggestion">
+                    <div class="form-control p-0">
+                        <div class="w-100 p-0">
+                            <ul class="list-group border-0" id="@uniqueIdString-list">
+                                @foreach (Components.PersonRow pr in Model.Rows)
+                                {
+                                    <li class="list-group-item" onclick="personselector(this)" data-id="@pr.Id" data-name="@Model.Code">@pr.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        } 
+        else
+        {
+            <input type="text" class="form-control disabled" data-name="@Model.Code" id="@Model.Code-visible" placeholder='@Localizer["Search for names.."]' autocomplete="off" list="autocompleteOff" aria-autocomplete="none" value="@(Model.DefaultValue != null ? @Model.Rows.Where(w=>w.Email.ToLower() == Model.DefaultValue.ToLower()).Select(s=>s.Name).FirstOrDefault() : "")"
+            @(Model.IsRequired ? "required" : "") @(Model.Enable == true ? "" : "readonly")>
+            <input type="hidden" name="@Model.Code" id="@Model.Code-hidden"
+            @(Model.DefaultValue != null) ? value=@(Model.DefaultValue != null ? (Model.Rows.Where(w => w.Email.ToLower() == Model.DefaultValue.ToLower()).Select(s => s.Id).FirstOrDefault()) : "")>
+
+        }
+
+    </div>
+}

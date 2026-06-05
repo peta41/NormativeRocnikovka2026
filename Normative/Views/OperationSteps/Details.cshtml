@@ -1,0 +1,143 @@
+﻿@model OperationStepModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .OperationSteps-Det-tab {
+        /*width: 300px;*/
+        width:1296px;
+        margin-bottom: 5px;
+    }
+
+    .Col-Name-Det-OperationSteps {
+        font-weight: bold;
+    }
+
+    .Edit-Button-OperationStepsDet {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Back-Button-OperationStepsDet {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+<h1>@Localizer["Details"]</h1>
+
+<div>
+    <h4>@Localizer["OperationStep"]</h4>
+    <hr />
+    <table class="table table-striped table-bordered table-sm OperationSteps-Det-tab">
+        <tr>
+            <th>@Localizer["ColumnName"]</th>
+            <th>@Localizer["ColumnData"]</th>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.Operation.OperationNumber)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.Operation.OperationNumber)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.ProductSize.Size)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.ProductSize.Size)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.Name)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.Name)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.DrawingPosition)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.DrawingPosition)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.Description)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.Description)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.Sequence)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.Sequence)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.StandardHour)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.StandardHour)</td>
+        </tr>
+        <tr>
+            <td class="Col-Name-Det-OperationSteps">@Html.DisplayNameFor(model => model.OperationStep.Diameter)</td>
+            <td>@Html.DisplayFor(model => model.OperationStep.Diameter)</td>
+        </tr>
+    </table>
+</div>
+@* <div>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Edit-Button-OperationStepsDet" asp-action="Edit" asp-route-id="@Model?.OperationStep ">Edit</a></button>
+    <button class="btn btn-outline-secondary w-10 me-1"><a class="Back-Button-OperationStepsDet" asp-action="Index">Back</a></button>
+</div> *@
+
+
+
+
+
+
+
+
+
+@* <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.Operation.OperationNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.Operation.OperationNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.ProductSize.Size)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.ProductSize.Size)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.DrawingPosition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.DrawingPosition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.Sequence)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.Sequence)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.StandardHour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.StandardHour)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OperationStep.Diameter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OperationStep.Diameter)
+        </dd>
+    </dl> *@

@@ -1,0 +1,120 @@
+﻿@model PreparationModel
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Create-Button-Preparations {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Edit-Button-Preparations {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Details-Button-Preparations {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Delete-Button-Preparations {
+        text-decoration: none;
+        color: black;
+    }
+    
+</style>
+
+@* <h1>@Localizer["Index"]</h1>
+ *@
+<h4 style="font-weight: bold;">@Localizer["Preparations"]</h4>
+<hr />
+<table class="table table-striped table-bordered table-sm">
+    <thead>
+        <tr>
+            <th class="col-2 text-md-center">
+                @Localizer["Diameter Line"]
+            </th>
+            <th class="col-1 text-md-center">
+                @Localizer["Size"]
+            </th>
+            <th class="col-4 text-md-center">
+                @Localizer["Name"]
+            </th>
+            <th class="col-1 text-md-center">
+                @Localizer["Fitter"]
+            </th>
+            <th class="col-1 text-md-center">
+                @Localizer["Welder"]
+            </th>
+            <th class="col-3">
+                @* @Localizer["Options"] *@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.PreparationsList != null)
+        {
+            @foreach (V_Preparation Prp in Model.PreparationsList)
+            {
+                <tr>
+                    <td class="col-2 text-md-center">
+                        @Prp.DiameterLine
+                    </td>
+                    <td class="col-1 text-md-center">
+                        @Prp.Size
+                    </td>
+                    <td class="col-4">
+                        @Prp.TypeName
+                    </td>
+                    <td class="col-1 text-md-center">
+                        @Prp.Fitter
+                    </td>
+                    <td class="col-1 text-md-center">
+                        @Prp.Welder
+                    </td>
+                    <td colspan="3" class="text-end">
+                        <button class="btn btn-outline-primary"><a class="Edit-Button-Preparations" asp-controller="Preparations" asp-action="Edit" asp-route-id="@Prp.Id">@Localizer["Edit"]</a></button>
+                        <button class="btn btn-outline-primary"><a class="Details-Button-Preparations" asp-controller="Preparations" asp-action="Details" asp-route-id="@Prp.Id">@Localizer["Details"]</a></button>
+                        <button class="btn btn-outline-danger"><a class="Delete-Button-Preparations" asp-controller="Preparations" asp-action="Delete" asp-route-id="@Prp.Id">@Localizer["Delete"]</a></button>
+                    </td> 
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+
+<div class="row">
+    <div class="col-10">
+        @Html.PagedListPager(
+                 Model.PreparationsList,
+                 page => Url.Action("Index", new
+                 {
+                     page = page
+                 }),
+                 new PagedListRenderOptions()
+        {
+            LiElementClasses = new List<string> { "page-item page-item" },
+            UlElementClasses = new List<string> { "pagination" },
+            PageClasses = new string[] { "page-link" },
+            MaximumPageNumbersToDisplay = 5,
+        })
+
+    </div>
+    <div class="col-2 text-end">
+        @(Model.PreparationsList.PageCount < Model.PreparationsList.PageNumber ? 0 : Model.PreparationsList.PageNumber) z @Model.PreparationsList.PageCount
+    </div>
+</div>

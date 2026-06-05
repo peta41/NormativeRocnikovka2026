@@ -1,0 +1,75 @@
+﻿@model Navigation
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<nav class="navbar navbar-expand fixed-top bg-dark py-3 d-print-none" style="background-color: #0F5DA6 !important;height: 50px;" data-bs-theme="light">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+            <span class="d-flex justify-content-center align-items-center rounded p-1">
+                <img src="/svg/chart-logo.svg" class="img-fluid logo" asp-append-version=true />
+            </span>
+            <span class="ms-2 text-white">Normative</span>
+        </a>
+@*        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol">
+            <span class="visually-hidden">@Localizer["Toggle navigation"]</span>
+            <span class="navbar-toggler-icon"></span>
+        </button>*@
+        <div class="collapse navbar-collapse" id="navcol">
+            <div class="col pe-3 d-none d-sm-block">
+                <div class="row">
+                    <div class="col"></div>
+                    @if (Model != null)
+                    {
+                        if (Model.Search != null)
+                        {
+                            if (Model.Search.Controller != null && Model.Search.Action != null)
+                            {
+
+                                <form method="get" asp-controller="@Model.Search.Controller" asp-action="@Model.Search.Action" class="col-8">
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control" type="search" placeholder="@Localizer["What you're looking for?"]" name="search" value=@ViewData["Search"]>
+                                        <input type="hidden" name="viewid" value="@ViewData["ViewId"]">
+                                        <button class="btn btn-primary text-bg-light btn-sm border border-1" type="submit">@Localizer["Search"]</button>
+                                    </div>
+                                </form>
+
+                            }
+                        }
+                    }
+                    <div class="col"></div>
+                </div>
+            </div>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <span class="nav-link">
+                        @await Component.InvokeAsync("SwitchLangComponent")
+                    </span>
+                </li>
+                <li class="nav-item ps-3">
+                    <div class="btn-group" style="margin-top: 1px">
+                        <span class="dropdown-toggle align-middle text-white pt-2" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            @User?.Claims.Where(w => w.Type.Contains("givenname")).Select(s => s.Value).FirstOrDefault()
+                        </span>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            @if (User.Claims.Where(w => w.Type.Contains("identity/claims/role") && w.Value == "Administrator").Any())
+                            {
+                                <li><a asp-controller="Settings" asp-action="Index" class="dropdown-item">@Localizer["Settings"]</a></li>
+                                <li class="ps-2"><a asp-controller="ProductLines" asp-action="Index" class="dropdown-item">@Localizer["Product Line"]</a></li>
+                                <li class="ps-2"><a asp-controller="ProductSizes" asp-action="Index" class="dropdown-item">@Localizer["Product Size"]</a></li>
+                                <li class="ps-2"><a asp-controller="ProductTypes" asp-action="Index" class="dropdown-item">@Localizer["Product Types"]</a></li>
+                                <li class="ps-2"><a asp-controller="Operations" asp-action="Index" class="dropdown-item">@Localizer["Operation"]</a></li>
+                                <li class="ps-2"><a asp-controller="OperationSteps" asp-action="Index" class="dropdown-item">@Localizer["Operation Steps"]</a></li>
+                                <li class="ps-2"><a asp-controller="Preparations" asp-action="Index" class="dropdown-item">@Localizer["Preparations"]</a></li>
+                                <li><a asp-controller="Settings" asp-action="Users" class="dropdown-item">@Localizer["Users"]</a></li>
+                            }
+
+
+                            <li class="ps-2"><a asp-controller="Settings" asp-action="Claims" class="dropdown-item">@Localizer["My Permissions"]</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

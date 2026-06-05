@@ -1,0 +1,114 @@
+﻿@model OperationStepModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+
+<style>
+    .Back-Button-OperationStepCn {
+        text-decoration: none;
+        color: black;
+    }
+
+    .OperationId-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .ProductSizeId-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Name-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .DrawingPosition-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Description-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Sequence-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .StandardHour-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Diameter-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+
+    .Create-adjust-Cn-OperationStep {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["OperationStep"]</h4>
+<hr />
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row w-75">
+        <form asp-action="Create" method="post" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.OperationId" class="control-label"></label> @* vsude pridano OperationStep. *@
+                <input asp-for="OperationStep.OperationId" class="form-control OperationId-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.OperationId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.ProductSizeId" class="control-label"></label>
+                <input asp-for="OperationStep.ProductSizeId" class="form-control ProductSizeId-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.ProductSizeId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.Name" class="control-label"></label>
+                <input asp-for="OperationStep.Name" class="form-control Name-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.DrawingPosition" class="control-label"></label>
+                <input asp-for="OperationStep.DrawingPosition" class="form-control DrawingPosition-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.DrawingPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.Description" class="control-label"></label>
+                <input asp-for="OperationStep.Description" class="form-control Description-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.Sequence" class="control-label"></label>
+                <input asp-for="OperationStep.Sequence" class="form-control Sequence-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.Sequence" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.StandardHour" class="control-label"></label>
+                <input asp-for="OperationStep.StandardHour" class="form-control StandardHour-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.StandardHour" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="OperationStep.Diameter" class="control-label"></label>
+                <input asp-for="OperationStep.Diameter" class="form-control Diameter-adjust-Cn-OperationStep" />
+                <span asp-validation-for="OperationStep.Diameter" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

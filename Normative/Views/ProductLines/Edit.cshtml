@@ -1,0 +1,51 @@
+﻿@model ProductLineModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Back-Button-ProductLineE {
+        text-decoration: none;
+        color: black;
+    }
+
+    .Name-adjust-E-Line{
+        margin-bottom: 5px;
+    }
+
+    .Save-adjust-E-Line{
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Edit"]</h1>
+
+<h4>@Localizer["ProductLine"]</h4>
+<hr />
+<div class="container d-flex mt-5">
+    <div class="row w-75">
+        <form asp-action="Edit" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.ProductLine.ProductLineId" />
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.ProductLine.Name" class="control-label"></label>
+                <input asp-for="@Model.ProductLine.Name" class="form-control Name-adjust-E-Line" />
+                <span asp-validation-for="@Model.ProductLine.Name" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,156 @@
+﻿@model Normative.Models.Config.UserModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Create User"];
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<div class="container pt-3">
+    <main role="main" class="pt-2 pb-3">
+        <div class="container py-3 pt-5">
+            <div class="row pt-3 ps-2 pe-2">
+
+                <nav class="breadcrumbs">
+                    <a asp-controller="Home"
+                       asp-action="Index"
+                       class="breadcrumbs_item">@Localizer["Home"]</a>
+
+                    <a asp-controller="Settings"
+                       asp-action="Index"
+                       class="breadcrumbs_item">@Localizer["Settings"]</a>
+
+                    <a asp-controller="Settings"
+                       asp-action="Users"
+                       class="breadcrumbs_item">@Localizer["Users"]</a>
+
+                    <span class="breadcrumbs_item is-active">
+                        @Localizer["Edit User"]
+                    </span>
+                </nav>
+
+                <div class="py-3"></div>
+
+                <h3>
+                    <i class="icon icon-user-follow"></i>
+                    @Localizer["Edit User"]
+                </h3>
+
+                <div class="col-lg-6">
+
+                    <form asp-action="UsersEdit"
+                          asp-controller="Settings"
+                          id="myform"
+                          method="post" asp-antiforgery="false">
+
+                        @* @Html.AntiForgeryToken() *@
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Edit.Username" class="form-label">
+                                @Localizer["Username"]
+                            </label>
+
+                            <input asp-for="Edit.Username" name="username" autocomplete="off"
+                                   class="form-control"/>
+
+                            <span asp-validation-for="Edit.Username"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Edit.Name" class="form-label">
+                                @Localizer["Name"]
+                            </label>
+
+                            <input asp-for="Edit.Name" name="name"
+                                   class="form-control"/>
+
+                            <span asp-validation-for="Edit.Name"
+                                  class="text-danger"></span>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label asp-for="Edit.Email" class="form-label">
+                                @Localizer["Email"]
+                            </label>
+
+                            <input asp-for="Edit.Email" name="email"
+                                   class="form-control"/>
+
+                            <span asp-validation-for="Edit.Email"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Edit.Password" class="form-label">
+                                @Localizer["Password"]
+                            </label>
+
+                            <input asp-for="Edit.Password" name="password"
+                                   type="password"
+                                   class="form-control" />
+
+                            <span asp-validation-for="Edit.Password"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Edit.RoleId" class="form-label">
+                                @Localizer["Role"]
+                            </label>
+
+                            <!-- Změna z input na select -->
+                            <select asp-for="Edit.RoleId" name="roleid"
+                                    asp-items="@(new SelectList(Model.Roles, "RoleId", "Name", Model.Edit.RoleId))"
+                                    class="form-select">
+                            </select>
+
+                            <span asp-validation-for="Edit.RoleId" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" asp-for="Edit.UserId" name="userid"/>
+
+                        <div class="mt-4">
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                <i class="icon icon-plus"></i>
+                                @Localizer["Save"]
+                            </button>
+
+                            <a asp-action="Users"
+                               asp-controller="Settings"
+                               class="btn btn-secondary">
+                                @Localizer["Back"]
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function Save() {
+            $('#myform').submit(); // jQuery .submit() trigger validaci spustí
+        }
+    </script>
+}

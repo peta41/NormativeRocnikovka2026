@@ -1,0 +1,92 @@
+﻿@model PreparationModel
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Header -->
+@await Html.PartialAsync("_Header", Model.Navigation)
+<!-- End Header -->
+<!-- Toolbar -->
+@await Html.PartialAsync("_Toolbar", Model.ToolBar)
+<!-- End Toolbar -->
+
+<style>
+    .Size-adjust-E-Stl {
+        margin-bottom: 5px;
+    }
+
+    .Name-adjust-E-Stl {
+        margin-bottom: 5px;
+    }
+
+    .Welder-adjust-E-Stl {
+        margin-bottom: 5px;
+    }
+
+    .Fitter-adjust-E-Stl {
+        margin-bottom: 5px;
+    }
+</style>
+
+<h1>@Localizer["Edit"]</h1>
+
+<h4>@Localizer["Preparations"]</h4>
+<hr />
+
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row w-75">
+        <form asp-action="Edit" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger col-12 mb-3"></div>
+            <input type="hidden" asp-for="@Model.Preparation.Id" />
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Preparation.ProductSize" class="control-label"></label>
+                <select name="ProductSize" class="form-control">
+                    @foreach (ProductSize size in Model.ProductSizes)
+                    {
+                        if (Model.Preparation.ProductSize.ProductSizeId == size.ProductSizeId)
+                        {
+                            <option value="@size.ProductSizeId" selected class="form-control Size-adjust-E-Stl">@size.Size</option>
+                        }
+                        else
+                        {
+                            <option value="@size.ProductSizeId" class="form-control Size-adjust-E-Stl">@size.Size</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Preparation.PreparationType" class="control-label"></label>
+                <select name="PreparationType" class="form-control">
+                    @foreach (PreparationType type in Model.PreparationsType)
+                    {
+                        if (Model.Preparation.PreparationType.Id == type.Id)
+                        {
+                            <option value="@type.Id" selected class="form-control Name-adjust-E-Stl">@type.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@type.Id" class="form-control Name-adjust-E-Stl">@type.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>@Localizer["Welder"]</label>
+                <input value="@Model.Preparation.Welder.ToString().Replace(",",".")" name="Welder" type="number" step="0.01" class="form-control Welder-adjust-E-Stl" />
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>@Localizer["Fitter"]</label>
+                <input value="@Model.Preparation.Fitter.ToString().Replace(",",".")" name="Fitter" type="number" step="0.01" class="form-control Fitter-adjust-E-Stl" />
+                <input type="hidden" value="@Model.Preparation.Id" name="Id" />
+            </div>
+        </form>
+    </div>
+</div>
