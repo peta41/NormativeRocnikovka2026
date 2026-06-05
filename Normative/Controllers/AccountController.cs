@@ -22,53 +22,7 @@ public class AccountController(NormativeContext normativeContext,
     private IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
     private LoginServices _loginServices = loginServices;
 
-    [Authorize]
-    public IActionResult Index()
-    {
-        return View(_context.Users.ToList());
-    }
-
-    public IActionResult Registration()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Registration(RegistrationModel model)
-    {
-        if (ModelState.IsValid)
-        {
-            if(model.Password != model.ConfirmPassword)
-            {
-                ViewBag.Error = "hesla nejsou shodna";
-                model.Password = string.Empty;
-                model.ConfirmPassword = string.Empty;
-                return View(model);
-            }
-
-
-            User account = new()
-            {
-                Email = model.Email,
-                DisplayName = model.DisplayName,
-                UserName = model.Username
-            };
-
-
-            ReturnModel returnModel = await _loginServices.Registration(account, model.Password);
-
-            if (returnModel.Success == true) { 
-                return RedirectToAction("Login", "Account");
-            }
-
-
-            // todo: error message / neni validni heslo, a uyival jiy existuje
-            ViewBag.Error = returnModel.ErrorMessage;
-            
-        }
-        return View(model);
-    }
-
+    
     public IActionResult Login()
     {
         return View();
@@ -108,14 +62,8 @@ public class AccountController(NormativeContext normativeContext,
     public IActionResult LogOut()
     {
         HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home");
     }
 
-    [Authorize]
-    public IActionResult SecurePage()
-    {
-        //tady jsem skocil ted budu delat views a video(35:24)
-        ViewBag.Name = HttpContext.User.Identity.Name;
-        return View();
-    }
+    
 }

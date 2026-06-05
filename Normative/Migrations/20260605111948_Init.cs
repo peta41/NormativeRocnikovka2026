@@ -541,7 +541,7 @@ namespace Normative.Migrations
                     AND vt.ProductType_Id = 2
                     AND ok1.ProductSize_Id = 5
             ");
-            
+
             migrationBuilder.Sql(@"
                 CREATE VIEW  [dbo].[v_VTC_InnerVessel_OPSQ_20] AS
                 SELECT
@@ -732,54 +732,6 @@ namespace Normative.Migrations
             ");
 
             migrationBuilder.Sql(@"
-                CREATE   VIEW [dbo].[v_VTC_Pipe_20_30] as
-                SELECT
-                    view1.ID as 'ID',
-                    view1.ProductLine as 'ProductLine',
-                    view1.ProductType as 'ProductType',
-                    view1.ProductSize_Id as 'ProductSizeId',
-                    view1.NameOperationStep as 'NameOperationStep',
-                    view1.[Sequence],
-                    view2.Diameter,
-                    view2.DrawingPosition,
-                    view2.PipeBending,
-                    view1.Operation_Id as 'OperationId_20',
-                    view1.Note as 'Note_20',
-                    view1.D1800_VT3 as 'D1800_VT3_20',
-                    view1.D1800_VT6 as 'D1800_VT6_20',
-                    view1.D1800_VT9 as 'D1800_VT9_20',
-                    view1.D2100_VT11 as 'D2100_VT11_20',
-                    view1.D2100_VT16 as 'D2100_VT16_20',
-                    view1.D2100_VT21 as 'D2100_VT21_20',
-                    view1.D2100_VT25 as 'D2100_VT25_20',
-                    view1.D2500_VT26 as 'D2500_VT26_20',
-                    view1.D2500_VT31 as 'D2500_VT31_20',
-                    view1.D2500_VT43 as 'D2500_VT43_20',
-                    view1.D3000_VT41 as 'D3000_VT41_20',
-                    view1.D3000_VT50 as 'D3000_VT50_20',
-                    view1.D3000_VT60 as 'D3000_VT60_20',
-                    view2.Operation_Id as 'OperationId_30',
-                    view2.Note as 'Note_30',
-                    view2.D1800_VT3 as 'D1800_VT3_30',
-                    view2.D1800_VT6 as 'D1800_VT6_30',
-                    view2.D1800_VT9 as 'D1800_VT9_30',
-                    view2.D2100_VT11 as 'D2100_VT11_30',
-                    view2.D2100_VT16 as 'D2100_VT16_30',
-                    view2.D2100_VT21 as 'D2100_VT21_30',
-                    view2.D2100_VT25 as 'D2100_VT25_30',
-                    view2.D2500_VT26 as 'D2500_VT26_30',
-                    view2.D2500_VT31 as 'D2500_VT31_30',
-                    view2.D2500_VT43 as 'D2500_VT43_30',
-                    view2.D3000_VT41 as 'D3000_VT41_30',
-                    view2.D3000_VT50 as 'D3000_VT50_30',
-                    view2.D3000_VT60 as 'D3000_VT60_30'
-                FROM [dbo].[v_VTC_Pipe_OPSQ_20] AS view1
-                INNER JOIN [dbo].[v_VTC_Pipe_OPSQ_30] AS view2 
-                ON view1.Sequence = view2.Sequence;
-                GO
-            ");
-
-            migrationBuilder.Sql(@"
                 CREATE VIEW [dbo].[v_VTC_Pipe_OPSQ_20] AS
                 SELECT
 	                ok1.OperationStep_Id as ID,
@@ -928,6 +880,66 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 3
 	                AND ok1.ProductSize_Id = 8
+                GO
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE   VIEW [dbo].[v_VTC_Pipe_20_30] as
+                SELECT
+                    view1.ID as 'ID',
+                    view1.ProductLine as 'ProductLine',
+                    view1.ProductType as 'ProductType',
+                    view1.ProductSize_Id as 'ProductSizeId',
+                    view1.NameOperationStep as 'NameOperationStep',
+                    view1.[Sequence],
+                    view2.Diameter,
+                    view2.DrawingPosition,
+                    view2.PipeBending,
+                    view1.Operation_Id as 'OperationId_20',
+                    view1.Note as 'Note_20',
+                    view1.D1800_VT3 as 'D1800_VT3_20',
+                    view1.D1800_VT6 as 'D1800_VT6_20',
+                    view1.D1800_VT9 as 'D1800_VT9_20',
+                    view1.D2100_VT11 as 'D2100_VT11_20',
+                    view1.D2100_VT16 as 'D2100_VT16_20',
+                    view1.D2100_VT21 as 'D2100_VT21_20',
+                    view1.D2100_VT25 as 'D2100_VT25_20',
+                    view1.D2500_VT26 as 'D2500_VT26_20',
+                    view1.D2500_VT31 as 'D2500_VT31_20',
+                    view1.D2500_VT43 as 'D2500_VT43_20',
+                    view1.D3000_VT41 as 'D3000_VT41_20',
+                    view1.D3000_VT50 as 'D3000_VT50_20',
+                    view1.D3000_VT60 as 'D3000_VT60_20',
+                    view2.Operation_Id as 'OperationId_30',
+                    view2.Note as 'Note_30',
+                    view2.D1800_VT3 as 'D1800_VT3_30',
+                    view2.D1800_VT6 as 'D1800_VT6_30',
+                    view2.D1800_VT9 as 'D1800_VT9_30',
+                    view2.D2100_VT11 as 'D2100_VT11_30',
+                    view2.D2100_VT16 as 'D2100_VT16_30',
+                    view2.D2100_VT21 as 'D2100_VT21_30',
+                    view2.D2100_VT25 as 'D2100_VT25_30',
+                    view2.D2500_VT26 as 'D2500_VT26_30',
+                    view2.D2500_VT31 as 'D2500_VT31_30',
+                    view2.D2500_VT43 as 'D2500_VT43_30',
+                    view2.D3000_VT41 as 'D3000_VT41_30',
+                    view2.D3000_VT50 as 'D3000_VT50_30',
+                    view2.D3000_VT60 as 'D3000_VT60_30'
+                FROM [dbo].[v_VTC_Pipe_OPSQ_20] AS view1
+                INNER JOIN [dbo].[v_VTC_Pipe_OPSQ_30] AS view2 
+                ON view1.Sequence = view2.Sequence;
+                GO
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE VIEW [dbo].[V_UsersRoles]
+                AS
+                SELECT u.DisplayName, u.Email, u.UserName, r.RoleId, r.Name AS Role, u.UserId
+                FROM   cfg.Users AS u LEFT OUTER JOIN
+                             cfg.UserRoles AS ur ON u.UserId = ur.UserId LEFT OUTER JOIN
+                             cfg.Roles AS r ON ur.RoleId = r.RoleId
+                WHERE (u.IsActive = 1) AND (r.IsActive = 1 OR
+                             r.IsActive IS NULL)
                 GO
             ");
         }
