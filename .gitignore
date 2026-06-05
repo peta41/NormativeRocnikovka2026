@@ -380,3 +380,15 @@ healthchecksdb
 
 **/.vs/*
 sh.exe.stackdump
+
+
+# App settings
+appsettings.json
+appsettings.Development.json
+
+# Excel
+*.xls
+*.xlsx
+
+# ModelBuilder
+ModelBuilderExtensions.cs
