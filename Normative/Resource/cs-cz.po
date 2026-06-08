@@ -1,19 +1,19 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 11:13+0000\n"
-"PO-Revision-Date: 2025-05-20 11:55+0000\n"
+"POT-Creation-Date: 2026-06-08 15:38+02:00\n"
+"PO-Revision-Date: 2026-06-08 15:44+0200\n"
 "Last-Translator: \n"
 "Language-Team: Unknown\n"
 "Language: zxx\n"
-"Plural-Forms: nplurals=2; plural=n!=1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
 "X-Loco-Source-Locale: cs_CZ\n"
 "X-Loco-Parser: loco_parse_po\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Poedit 3.8\n"
 
 # \Components\PersonSelect\PersonSelect.cshtml:27
 # \Components\PersonSelect\PersonSelect.cshtml:49
@@ -84,7 +84,7 @@ msgstr "Profil"
 
 # \Views\Home\Index.cshtml:137
 msgid "This is the profile page"
-msgstr "Tohle je stránka s profiem"
+msgstr "Tohle je stránka s profilem"
 
 # \Views\Inner\Index.cshtml:32
 # \Views\Inner\Index.cshtml:78
@@ -355,7 +355,7 @@ msgstr "OPERACE"
 
 # \Views\Pipe\index.cshtml:64
 msgid "Adjust Values"
-msgstr "Upravit Hodnoty"
+msgstr "Upravit hodnoty"
 
 # \Views\Pipe\index.cshtml:92
 msgid "Between Calculations"
@@ -664,62 +664,43 @@ msgstr "Moje oprávnění"
 # \Views\Settings\Users.cshtml:27
 # \Views\Settings\Users.cshtml:31
 # \Views\Shared\_Header.cshtml:66
-msgid "Users"
-msgstr "Uživatelé"
+msgid "User"
+msgstr "Uživatel"
+
+# \Views\Settings\Users.cshtml:48
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+# \Views\Settings\Create.cshtml:39
+msgid "First and Last Name"
+msgstr "Jméno a přijmení"
+
+# \Views\Settings\Users.cshtml:54
+msgid "Email"
+msgstr "Email"
 
 # \Views\Settings\Index.cshtml:37
 # \Views\Settings\Roles.cshtml:29
 # \Views\Shared\_Header.cshtml:67
-msgid "Roles"
+msgid "Role"
 msgstr "Role"
 
-# \Views\Settings\Index.cshtml:40
-# \Views\Settings\Permissions.cshtml:27
-# \Views\Shared\_Header.cshtml:68
-msgid "Permissions"
-msgstr "Oprávnění"
+# \Views\Settings\Create.cshtml:60
+# \Views\Settings\Edit.cshtml:53
+msgid "Password"
+msgstr "Heslo"
 
-# \Views\Settings\Index.cshtml:43
-# \Views\Shared\_Header.cshtml:71
-msgid "My Permissions"
-msgstr "Moje Oprávnění"
+# \Views\Settings\Create.cshtml:66
+msgid "Confirm Password"
+msgstr "Potvrzení hesla"
 
-# \Views\Settings\Index.cshtml:50
-msgid "Tables"
-msgstr "Tabulky"
-
-# \Views\Settings\Index.cshtml:52
-msgid "Operations"
-msgstr "Operace"
-
-# \Views\Settings\Index.cshtml:55
-msgid "Operation Steps"
-msgstr "Kroky Operace"
-
-# \Views\Settings\Index.cshtml:61
-msgid "Product Lines"
-msgstr "Produktové řady"
-
-# \Views\Settings\Index.cshtml:64
-msgid "Product Sizes"
-msgstr "Produktové velikosti"
-
-# \Views\Settings\Permissions.cshtml:49
-msgid "Value"
-msgstr "Hodnota"
-
-# \Views\Settings\Roles.cshtml:50
-msgid "Created"
-msgstr "Vytvořeno"
-
-# \Views\Settings\Roles.cshtml:55
-msgid "Active"
-msgstr "Aktivní"
-
-# \Views\Settings\Roles.cshtml:111
-# \Views\Settings\Users.cshtml:96
-msgid "of"
-msgstr "of"
+# \Views\Settings\Index.cshtml:32
+# \Views\Settings\Index.cshtml:34
+# \Views\Settings\Users.cshtml:27
+# \Views\Settings\Users.cshtml:31
+# \Views\Shared\_Header.cshtml:66
+msgid "Users"
+msgstr "Uživatelé"
 
 # \Views\Settings\Users.cshtml:40
 msgid "Display Name"
@@ -729,30 +710,10 @@ msgstr "Jméno"
 msgid "UserName"
 msgstr "Uživatelské Jméno"
 
-# \Views\Settings\Users.cshtml:54
-msgid "Email"
-msgstr "Email"
-
-# \Views\Settings\Roles\_Create.cshtml:8
-msgid "New"
-msgstr "Nový"
-
-# \Views\Settings\Roles\_Create.cshtml:26
-# \Views\Settings\Roles\_Edit.cshtml:43
-msgid "Save"
-msgstr "Uložit"
-
-# \Views\Settings\Roles\_Edit.cshtml:28
-msgid "Status"
-msgstr "Status"
-
-# \Views\Settings\Roles\_Edit.cshtml:32
-msgid "Disable"
-msgstr "Vypnout"
-
-# \Views\Settings\Roles\_Edit.cshtml:33
-msgid "Enable"
-msgstr "Zapnout"
+# \Views\Settings\Roles.cshtml:111
+# \Views\Settings\Users.cshtml:96
+msgid "of"
+msgstr "z"
 
 # \Views\Shared\_Header.cshtml:14
 msgid "Toggle navigation"
@@ -766,17 +727,85 @@ msgstr "Co hledáte?"
 msgid "Search"
 msgstr "Hledat"
 
-# \Views\Shared\_Header.cshtml:36
-msgid "Show filters setting"
-msgstr "Ukázat filtry nastavení"
+# \Views\Settings\Index.cshtml:55
+msgid "Operation Steps"
+msgstr "Kroky Operace"
 
-# \Views\Shared\_Header.cshtml:38
-msgid "Show all records"
-msgstr "Ukázat všechny záznamy"
+# \Views\Settings\Index.cshtml:43
+# \Views\Shared\_Header.cshtml:71
+msgid "My Permissions"
+msgstr "Moje Oprávnění"
+
+# \Views\Shared\_Header.cshtml:69
+msgid "Log Out"
+msgstr "Odhlásit"
 
 # \Views\Shared\_Toolbar.cshtml:24
 msgid "Cancel filter"
 msgstr "Zrušit filtr"
 
-msgid "Back"
-msgstr "Zpět"
+# \Views\Settings\Index.cshtml:40
+# \Views\Settings\Permissions.cshtml:27
+# \Views\Shared\_Header.cshtml:68
+#~ msgid "Permissions"
+#~ msgstr "Oprávnění"
+
+# \Views\Settings\Index.cshtml:50
+#~ msgid "Tables"
+#~ msgstr "Tabulky"
+
+# \Views\Settings\Index.cshtml:52
+#~ msgid "Operations"
+#~ msgstr "Operace"
+
+# \Views\Settings\Index.cshtml:61
+#~ msgid "Product Lines"
+#~ msgstr "Produktové řady"
+
+# \Views\Settings\Index.cshtml:64
+#~ msgid "Product Sizes"
+#~ msgstr "Produktové velikosti"
+
+# \Views\Settings\Permissions.cshtml:49
+#~ msgid "Value"
+#~ msgstr "Hodnota"
+
+# \Views\Settings\Roles.cshtml:50
+#~ msgid "Created"
+#~ msgstr "Vytvořeno"
+
+# \Views\Settings\Roles.cshtml:55
+#~ msgid "Active"
+#~ msgstr "Aktivní"
+
+# \Views\Settings\Roles\_Create.cshtml:8
+#~ msgid "New"
+#~ msgstr "Nový"
+
+# \Views\Settings\Roles\_Create.cshtml:26
+# \Views\Settings\Roles\_Edit.cshtml:43
+#~ msgid "Save"
+#~ msgstr "Uložit"
+
+# \Views\Settings\Roles\_Edit.cshtml:28
+#~ msgid "Status"
+#~ msgstr "Status"
+
+# \Views\Settings\Roles\_Edit.cshtml:32
+#~ msgid "Disable"
+#~ msgstr "Vypnout"
+
+# \Views\Settings\Roles\_Edit.cshtml:33
+#~ msgid "Enable"
+#~ msgstr "Zapnout"
+
+# \Views\Shared\_Header.cshtml:36
+#~ msgid "Show filters setting"
+#~ msgstr "Ukázat filtry nastavení"
+
+# \Views\Shared\_Header.cshtml:38
+#~ msgid "Show all records"
+#~ msgstr "Ukázat všechny záznamy"
+
+#~ msgid "Back"
+#~ msgstr "Zpět"

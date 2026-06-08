@@ -62,7 +62,7 @@
 <hr />
 <div class="container d-flex justify-content-center mt-5">
     <div class="row w-75">
-        <form asp-action="Create" method="post" class="row">
+        <form asp-action="Create" method="post" class="row" id="myform">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group col-md-6">
                 <label asp-for="OperationStep.OperationId" class="control-label"></label> @* vsude pridano OperationStep. *@
@@ -109,6 +109,13 @@
 </div>
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function Save() {
+            $('#myform').submit(); // jQuery .submit() trigger validaci spustí
+        }
+    </script>
 }

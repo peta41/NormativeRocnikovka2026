@@ -84,7 +84,9 @@ namespace Normative.Controllers
             var operation = await _context.Operation.FindAsync(id);
             OperationModel model = new()
             {
-                Operation = operation
+                Operation = operation,
+                ProductLines = await _context.ProductLine.Where(w=>w.IsDeleted == false).ToListAsync(),
+                ProductTypes = await _context.ProductType.Where(w => w.IsDeleted == false).ToListAsync()
             };
             return model;
         }
@@ -155,7 +157,7 @@ namespace Normative.Controllers
         }
 
         // GET: Operations/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             // Create action link for page
             List<ToolBarActionLink> ListAction = new()
@@ -185,7 +187,11 @@ namespace Normative.Controllers
                 Action = ListAction,
             };
 
-            OperationModel model = new() { ToolBar = tool };
+            OperationModel model = new() { 
+                ToolBar = tool,
+                ProductLines = await _context.ProductLine.Where(w => w.IsDeleted == false).ToListAsync(),
+                ProductTypes = await _context.ProductType.Where(w => w.IsDeleted == false).ToListAsync()
+            };
             return View(model);
 
             //ViewData["ProductLineId"] = new SelectList(_context.ProductLine, "ProductLineId", "ProductLineId");
@@ -288,7 +294,7 @@ namespace Normative.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OperationId,ProductLineId,ProductTypeId,OperationNumber,OperationDescription,WorkCenter")] Operation operation)
+        public async Task<IActionResult> Edit(int id, Operation operation)
         {
             if (ModelState.IsValid)
             {

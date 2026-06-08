@@ -49,35 +49,14 @@
     </div>
 </div>
 
-@section Scripts {
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
 
     <script>
-
-        function Save(){
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
-
-            Array.from(forms).forEach(form => {
-                //form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-
-                if (form.checkValidity()) {
-                    document.getElementById('myform').submit();
-                }
-                //}, false)
-            });
-
+        function Save() {
+            $('#myform').submit(); // jQuery .submit() trigger validaci spustí
         }
-
-
-
     </script>
-    
-
 }
+    

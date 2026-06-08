@@ -4,151 +4,259 @@
 }
 
 <style>
+    .navbar-normative {
+        height: 43.36px;
+        background: #0F5DA6;
+        display: flex;
+        align-items: center;
+        padding: 0 1.25rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+
+        .navbar-normative span {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            letter-spacing: 0;
+        }
+
     .login-wrapper {
-        min-height: 80vh;
+        position: fixed;
+        top: 43.36px;
+        left: 0;
+        right: 0;
+        bottom: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f0f4f8;
+        background: #ffffff;
     }
 
     .login-card {
-        background: #ffffff;
-        border: 1px solid #d0dce8;
-        border-radius: 12px;
-        padding: 2.5rem 2rem;
+        background: #0F5DA6;
+        border-radius: 20px;
+        padding: 2.75rem 2.5rem 2.5rem;
         width: 100%;
         max-width: 420px;
-        box-shadow: 0 1px 4px rgba(24,95,165,0.08);
+        text-align: center;
     }
 
-    .login-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        background: #185FA5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1.25rem;
-        font-size: 20px;
+    /* Avatar */
+    .avatar-wrap {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1.5rem;
+        border: 3px solid rgba(255,255,255,0.25);
+        background: rgba(255,255,255,0.15);
+        flex-shrink: 0;
     }
+
+        .avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
     .login-card h1 {
         font-size: 22px;
-        font-weight: 600;
-        margin: 0 0 4px;
-        color: #0d2a4a;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #ffffff;
+        margin: 0 0 6px;
     }
 
     .login-card .subtitle {
         font-size: 14px;
-        color: #5a7a9a;
+        color: rgba(255,255,255,0.6);
         margin: 0 0 2rem;
     }
 
+    /* Validation summary */
+    .text-danger {
+        font-size: 12px;
+        color: #ffd6d6;
+        margin-top: 4px;
+        display: block;
+        text-align: left;
+    }
+
+    /* Form groups */
     .form-group {
-        margin-bottom: 1rem;
+        margin-bottom: 1.6rem;
+        text-align: left;
+        position: relative;
     }
 
         .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            color: #2d5070;
-            margin-bottom: 6px;
+            display: none;
+        }
+
+        .form-group .input-icon {
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 17px;
+            height: 17px;
+            color: rgba(255,255,255,0.5);
+            pointer-events: none;
         }
 
         .form-group .form-control {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.35);
+            border-radius: 0;
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 36px 8px 28px;
+            height: auto;
             width: 100%;
             box-sizing: border-box;
-            padding: 9px 12px;
-            font-size: 14px;
-            border: 1px solid #b8cfe0;
-            border-radius: 8px;
-            background: #f7fafd;
-            color: #0d2a4a;
-            transition: border-color 0.15s, box-shadow 0.15s;
             outline: none;
+            box-shadow: none !important;
+            transition: border-color 0.2s;
         }
 
-            .form-group .form-control:focus {
-                border-color: #185FA5;
-                box-shadow: 0 0 0 3px rgba(24,95,165,0.12);
-                background: #fff;
+            .form-group .form-control::placeholder {
+                color: rgba(255,255,255,0.4);
             }
 
-    .text-danger {
-        font-size: 12px;
-        color: #c0392b;
-        margin-top: 4px;
-        display: block;
+            .form-group .form-control:focus {
+                border-bottom-color: #ffffff;
+                background: transparent;
+                color: #ffffff;
+            }
+
+            /* Autofill override */
+            .form-group .form-control:-webkit-autofill,
+            .form-group .form-control:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0 1000px #0F5DA6 inset !important;
+                -webkit-text-fill-color: #ffffff !important;
+                caret-color: #ffffff;
+            }
+
+    /* Eye toggle */
+    .btn-eye {
+        position: absolute;
+        right: 0;
+        top: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: rgba(255,255,255,0.45);
+        padding: 0;
+        display: flex;
+        align-items: center;
+        transition: color 0.15s;
     }
 
+        .btn-eye:hover {
+            color: #ffffff;
+        }
+
+        .btn-eye svg {
+            width: 17px;
+            height: 17px;
+        }
+
+    /* Submit button */
     .btn-login {
         width: 100%;
-        margin-top: 0.75rem;
-        background: #185FA5;
+        margin-top: 0.25rem;
+        background: #0d6efd;
         color: #fff;
         border: none;
-        border-radius: 8px;
-        padding: 10px;
-        font-size: 14px;
-        font-weight: 500;
+        border-radius: 10px;
+        padding: 13px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
         cursor: pointer;
-        transition: background 0.15s;
+        transition: background 0.15s, transform 0.1s;
     }
 
         .btn-login:hover {
-            background: #0c4480;
+            background: #0b5ed7;
         }
 
-    .login-footer {
-        text-align: center;
-        font-size: 13px;
-        color: #5a7a9a;
-        margin-top: 1.5rem;
-    }
-
-        .login-footer a {
-            color: #185FA5;
-            text-decoration: none;
-            font-weight: 500;
+        .btn-login:active {
+            transform: scale(0.98);
+            background: #0a58ca;
         }
 
-            .login-footer a:hover {
-                text-decoration: underline;
-            }
-
+    /* Error banner */
     .error-banner {
-        background: #fff0f0;
-        border: 1px solid #f5c6c6;
+        background: rgba(255,107,107,0.15);
+        border: 1px solid rgba(255,107,107,0.4);
         border-radius: 8px;
         padding: 10px 14px;
-        color: #c0392b;
+        color: #ffd6d6;
         font-size: 13px;
         margin-top: 1rem;
+        text-align: left;
+    }
+
+    @@media (max-width: 480px) {
+        .login-card {
+            padding: 2rem 1.5rem 1.75rem;
+            margin: 1rem;
+        }
+
+            .login-card h1 {
+                font-size: 19px;
+            }
     }
 </style>
 
+<nav class="navbar-normative">
+    <span>Normative</span>
+</nav>
+
 <div class="login-wrapper">
     <div class="login-card">
-        <div class="login-icon">🔒</div>
-        <h1>Login</h1>
-        <p class="subtitle">Welcome back</p>
+
+        <div class="avatar-wrap">
+            <!-- Vlož cestu ke svému obrázku: src="~/images/avatar.jpg" -->
+            <img src="/Images/UserIconLogin.png" alt="Avatar"
+                 onerror="this.style.display='none';" />
+        </div>
+
+        <h1>Welcome</h1>
+        <p class="subtitle">Sign in to your account</p>
 
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
                 <label asp-for="UsernameOrEmail" class="control-label"></label>
-                <input asp-for="UsernameOrEmail" class="form-control" placeholder="your@email.com" />
+                <input asp-for="UsernameOrEmail" class="form-control" placeholder="Username or email" />
                 <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
             </div>
 
             <div class="form-group">
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
                 <label asp-for="Password" class="control-label"></label>
                 <input asp-for="Password" class="form-control" placeholder="••••••••" />
+                <button class="btn-eye" type="button" onclick="togglePassword(this)" aria-label="Show password">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </button>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
 
@@ -162,9 +270,10 @@
             <div class="error-banner">@ViewBag.Error</div>
         }
 
-        <div class="login-footer">
+        @* <div class="login-footer">
             Don't have an account? <a asp-action="Registration">Go To Registration</a>
-        </div>
+        </div> *@
+
     </div>
 </div>
 
@@ -173,3 +282,17 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+<script>
+    function togglePassword(btn) {
+        const input = btn.closest('.form-group').querySelector('input');
+        const svg = btn.querySelector('svg');
+        if (input.type === 'password') {
+            input.type = 'text';
+            svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />`;
+        } else {
+            input.type = 'password';
+            svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`;
+        }
+    }
+</script>

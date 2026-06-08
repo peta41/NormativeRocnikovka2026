@@ -275,7 +275,7 @@ namespace Normative.Controllers
             _ctx.UserRoles.Add(userRole);
             await _ctx.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Users)); //Index
         }
 
         // NEW - Create User GET
@@ -388,19 +388,18 @@ namespace Normative.Controllers
 
 
         [Authorize]
-        public async Task<ViewResult> Claims()
+        public ViewResult Claims()
         {
             IEnumerable<Claim> c = User?.Claims.Where(w=>w.Type.Contains(
                 "groupsid") == false && w.Type.Contains("primarysid") == false && w.Type.Contains("denyonlysid") == false
                 );
 
-            Navigation nav = await _sharedService.NavigationAsync();
 
 
             ModelClaims mc = new() { 
                 ToolBar = OnlyBack(),
                 Claims = c,
-                Navigation = nav
+                Navigation = new()
             };
 
             return View(mc);

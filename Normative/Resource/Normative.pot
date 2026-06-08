@@ -1,8 +1,8 @@
 ﻿#, fuzzy
 msgid "" 
 msgstr ""
-"POT-Creation-Date: 2025-05-20 13:12+02:00\n"
-"PO-Revision-Date: 2025-05-20 13:12+02:00\n"
+"POT-Creation-Date: 2026-06-08 15:38+02:00\n"
+"PO-Revision-Date: 2026-06-08 15:38+02:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,67 +15,76 @@ msgstr ""
 msgid "Search for names.."
 msgstr ""
 
-# \Views\Home\Index.cshtml:25
+# \Views\Home\Index.cshtml:24
 msgid "Outher"
 msgstr ""
 
-# \Views\Home\Index.cshtml:36
+# \Views\Home\Index.cshtml:35
 msgid "Inner"
 msgstr ""
 
-# \Views\Home\Index.cshtml:47
+# \Views\Home\Index.cshtml:46
 msgid "Pipe"
 msgstr ""
 
-# \Views\Home\Index.cshtml:68
-# \Views\Settings\Index.cshtml:82
+# \Views\Home\Index.cshtml:67
+# \Views\Settings\Index.cshtml:28
+# \Views\Settings\Index.cshtml:30
+# \Views\Shared\_Header.cshtml:58
 msgid "Product Line"
 msgstr ""
 
-# \Views\Home\Index.cshtml:79
-# \Views\Settings\Index.cshtml:93
+# \Views\Home\Index.cshtml:78
+# \Views\Settings\Index.cshtml:39
+# \Views\Settings\Index.cshtml:41
+# \Views\Shared\_Header.cshtml:59
 msgid "Product Size"
 msgstr ""
 
-# \Views\Home\Index.cshtml:90
-# \Views\Settings\Index.cshtml:67
-# \Views\Settings\Index.cshtml:104
+# \Views\Home\Index.cshtml:89
+# \Views\Settings\Index.cshtml:50
+# \Views\Settings\Index.cshtml:52
+# \Views\Shared\_Header.cshtml:60
 msgid "Product Types"
 msgstr ""
 
-# \Views\Home\Index.cshtml:101
+# \Views\Home\Index.cshtml:100
 # \Views\Operations\Create.cshtml:48
 # \Views\Operations\Delete.cshtml:19
 # \Views\Operations\Details.cshtml:40
 # \Views\Operations\Edit.cshtml:48
-# \Views\Operations\Index.cshtml:48
+# \Views\Operations\Index.cshtml:39
 # \Views\OperationSteps\Edit.cshtml:69
-# \Views\OperationSteps\Edit.cshtml:90
+# \Views\OperationSteps\Edit.cshtml:91
 # \Views\Preparations\Delete.cshtml:19
-# \Views\Settings\Index.cshtml:115
+# \Views\Settings\Index.cshtml:61
+# \Views\Settings\Index.cshtml:63
+# \Views\Shared\_Header.cshtml:61
 msgid "Operation"
 msgstr ""
 
-# \Views\Home\Index.cshtml:112
-# \Views\OperationSteps\Index.cshtml:49
-# \Views\Settings\Index.cshtml:126
+# \Views\Home\Index.cshtml:111
+# \Views\OperationSteps\Index.cshtml:40
+# \Views\Settings\Index.cshtml:72
+# \Views\Settings\Index.cshtml:74
 msgid "Operation Step"
 msgstr ""
 
-# \Views\Home\Index.cshtml:123
+# \Views\Home\Index.cshtml:122
 # \Views\Preparations\Details.cshtml:40
 # \Views\Preparations\Edit.cshtml:36
-# \Views\Preparations\Index.cshtml:45
-# \Views\Settings\Index.cshtml:58
-# \Views\Settings\Index.cshtml:137
+# \Views\Preparations\Index.cshtml:41
+# \Views\Settings\Index.cshtml:83
+# \Views\Settings\Index.cshtml:85
+# \Views\Shared\_Header.cshtml:63
 msgid "Preparations"
 msgstr ""
 
-# \Views\Home\Index.cshtml:136
+# \Views\Home\Index.cshtml:135
 msgid "Profile"
 msgstr ""
 
-# \Views\Home\Index.cshtml:137
+# \Views\Home\Index.cshtml:136
 msgid "This is the profile page"
 msgstr ""
 
@@ -142,21 +151,22 @@ msgstr ""
 # \Views\ProductLines\Create.cshtml:30
 # \Views\ProductSizes\Create.cshtml:34
 # \Views\ProductTypes\Create.cshtml:30
+# \Views\Settings\Create.cshtml:17
 msgid "Create"
 msgstr ""
 
 # \Views\Operations\Delete.cshtml:15
-# \Views\Operations\Index.cshtml:85
+# \Views\Operations\Index.cshtml:76
 # \Views\OperationSteps\Delete.cshtml:15
-# \Views\OperationSteps\Index.cshtml:102
+# \Views\OperationSteps\Index.cshtml:93
 # \Views\Preparations\Delete.cshtml:15
-# \Views\Preparations\Index.cshtml:75
+# \Views\Preparations\Index.cshtml:90
 # \Views\ProductLines\Delete.cshtml:15
-# \Views\ProductLines\Index.cshtml:80
+# \Views\ProductLines\Index.cshtml:62
 # \Views\ProductSizes\Delete.cshtml:15
-# \Views\ProductSizes\Index.cshtml:73
+# \Views\ProductSizes\Index.cshtml:66
 # \Views\ProductTypes\Delete.cshtml:15
-# \Views\ProductTypes\Index.cshtml:70
+# \Views\ProductTypes\Index.cshtml:62
 msgid "Delete"
 msgstr ""
 
@@ -178,17 +188,17 @@ msgid "ColunData"
 msgstr ""
 
 # \Views\Operations\Details.cshtml:37
-# \Views\Operations\Index.cshtml:84
+# \Views\Operations\Index.cshtml:75
 # \Views\OperationSteps\Details.cshtml:37
-# \Views\OperationSteps\Index.cshtml:101
+# \Views\OperationSteps\Index.cshtml:92
 # \Views\Preparations\Details.cshtml:37
-# \Views\Preparations\Index.cshtml:74
+# \Views\Preparations\Index.cshtml:89
 # \Views\ProductLines\Details.cshtml:37
-# \Views\ProductLines\Index.cshtml:79
+# \Views\ProductLines\Index.cshtml:61
 # \Views\ProductSizes\Details.cshtml:37
-# \Views\ProductSizes\Index.cshtml:72
+# \Views\ProductSizes\Index.cshtml:65
 # \Views\ProductTypes\Details.cshtml:37
-# \Views\ProductTypes\Index.cshtml:69
+# \Views\ProductTypes\Index.cshtml:61
 msgid "Details"
 msgstr ""
 
@@ -220,67 +230,67 @@ msgid "ColumnData"
 msgstr ""
 
 # \Views\Operations\Edit.cshtml:46
-# \Views\Operations\Index.cshtml:83
+# \Views\Operations\Index.cshtml:74
 # \Views\OperationSteps\Edit.cshtml:58
-# \Views\OperationSteps\Index.cshtml:100
+# \Views\OperationSteps\Index.cshtml:91
 # \Views\Preparations\Edit.cshtml:34
-# \Views\Preparations\Index.cshtml:73
+# \Views\Preparations\Index.cshtml:88
 # \Views\ProductLines\Edit.cshtml:30
-# \Views\ProductLines\Index.cshtml:78
+# \Views\ProductLines\Index.cshtml:60
 # \Views\ProductSizes\Edit.cshtml:34
-# \Views\ProductSizes\Index.cshtml:71
+# \Views\ProductSizes\Index.cshtml:64
 # \Views\ProductTypes\Edit.cshtml:30
-# \Views\ProductTypes\Index.cshtml:68
-# \Views\Settings\Roles.cshtml:83
-# \Views\Settings\Roles\_Edit.cshtml:8
+# \Views\ProductTypes\Index.cshtml:60
+# \Views\Settings\Edit.cshtml:17
+# \Views\Settings\Users.cshtml:54
 msgid "Edit"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:46
-# \Views\OperationSteps\Index.cshtml:47
-# \Views\Preparations\Index.cshtml:43
-# \Views\ProductLines\Index.cshtml:56
-# \Views\ProductSizes\Index.cshtml:46
-# \Views\ProductTypes\Index.cshtml:47
+# \Views\Operations\Index.cshtml:37
+# \Views\OperationSteps\Index.cshtml:38
+# \Views\Preparations\Index.cshtml:39
+# \Views\ProductLines\Index.cshtml:39
+# \Views\ProductSizes\Index.cshtml:39
+# \Views\ProductTypes\Index.cshtml:39
 msgid "Index"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:56
+# \Views\Operations\Index.cshtml:47
 msgid "OperationNumber"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:57
+# \Views\Operations\Index.cshtml:48
 msgid "OperationDescription"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:58
+# \Views\Operations\Index.cshtml:49
 msgid "WorkCenter"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:59
+# \Views\Operations\Index.cshtml:50
 # \Views\ProductLines\Create.cshtml:32
 # \Views\ProductLines\Delete.cshtml:19
 # \Views\ProductLines\Details.cshtml:40
 # \Views\ProductLines\Edit.cshtml:32
-# \Views\ProductLines\Index.cshtml:58
+# \Views\ProductLines\Index.cshtml:40
 msgid "ProductLine"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:60
+# \Views\Operations\Index.cshtml:51
 # \Views\ProductTypes\Create.cshtml:32
 # \Views\ProductTypes\Delete.cshtml:19
 # \Views\ProductTypes\Details.cshtml:40
 # \Views\ProductTypes\Edit.cshtml:32
-# \Views\ProductTypes\Index.cshtml:49
+# \Views\ProductTypes\Index.cshtml:41
 msgid "ProductType"
 msgstr ""
 
-# \Views\Operations\Index.cshtml:61
-# \Views\OperationSteps\Index.cshtml:69
-# \Views\Preparations\Index.cshtml:58
-# \Views\ProductLines\Index.cshtml:67
-# \Views\ProductSizes\Index.cshtml:58
-# \Views\ProductTypes\Index.cshtml:58
+# \Views\Operations\Index.cshtml:52
+# \Views\OperationSteps\Index.cshtml:60
+# \Views\Preparations\Index.cshtml:62
+# \Views\ProductLines\Index.cshtml:49
+# \Views\ProductSizes\Index.cshtml:51
+# \Views\ProductTypes\Index.cshtml:50
 msgid "Options"
 msgstr ""
 
@@ -291,39 +301,32 @@ msgstr ""
 msgid "OperationStep"
 msgstr ""
 
-# \Views\OperationSteps\Index.cshtml:63
-# \Views\Preparations\Index.cshtml:55
-# \Views\ProductLines\Index.cshtml:66
-# \Views\ProductSizes\Index.cshtml:56
-# \Views\ProductTypes\Index.cshtml:57
-# \Views\Settings\Permissions.cshtml:38
-# \Views\Settings\Permissions.cshtml:46
-# \Views\Settings\Roles.cshtml:40
-# \Views\Settings\Roles\_Edit.cshtml:18
+# \Views\OperationSteps\Index.cshtml:54
+# \Views\Preparations\Index.cshtml:53
+# \Views\ProductLines\Index.cshtml:48
+# \Views\ProductSizes\Index.cshtml:49
+# \Views\ProductTypes\Index.cshtml:49
+# \Views\Settings\Edit.cshtml:41
 msgid "Name"
 msgstr ""
 
-# \Views\OperationSteps\Index.cshtml:64
+# \Views\OperationSteps\Index.cshtml:55
 msgid "DrawingPosition"
 msgstr ""
 
-# \Views\OperationSteps\Index.cshtml:65
-# \Views\Settings\Permissions.cshtml:41
-# \Views\Settings\Roles.cshtml:45
-# \Views\Settings\Roles\_Create.cshtml:21
-# \Views\Settings\Roles\_Edit.cshtml:23
+# \Views\OperationSteps\Index.cshtml:56
 msgid "Description"
 msgstr ""
 
-# \Views\OperationSteps\Index.cshtml:66
+# \Views\OperationSteps\Index.cshtml:57
 msgid "Sequence"
 msgstr ""
 
-# \Views\OperationSteps\Index.cshtml:67
+# \Views\OperationSteps\Index.cshtml:58
 msgid "StandardHour"
 msgstr ""
 
-# \Views\OperationSteps\Index.cshtml:68
+# \Views\OperationSteps\Index.cshtml:59
 msgid "Diameter"
 msgstr ""
 
@@ -346,72 +349,60 @@ msgstr ""
 msgid "OPERATION"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:64
+# \Views\Pipe\index.cshtml:65
 msgid "Adjust Values"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:92
+# \Views\Pipe\index.cshtml:93
 msgid "Between Calculations"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:95
+# \Views\Pipe\index.cshtml:96
 msgid "Results"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:120
-# \Views\Pipe\index.cshtml:125
-# \Views\Pipe\index.cshtml:247
-# \Views\Pipe\index.cshtml:252
-# \Views\Pipe\index.cshtml:402
-# \Views\Pipe\index.cshtml:407
-# \Views\Pipe\index.cshtml:575
-# \Views\Pipe\index.cshtml:581
+# \Views\Pipe\index.cshtml:121
+# \Views\Pipe\index.cshtml:126
+# \Views\Pipe\index.cshtml:248
+# \Views\Pipe\index.cshtml:253
+# \Views\Pipe\index.cshtml:403
+# \Views\Pipe\index.cshtml:408
+# \Views\Pipe\index.cshtml:576
+# \Views\Pipe\index.cshtml:582
 msgid "Drawing"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:132
-# \Views\Pipe\index.cshtml:139
-# \Views\Pipe\index.cshtml:259
-# \Views\Pipe\index.cshtml:267
-# \Views\Pipe\index.cshtml:414
-# \Views\Pipe\index.cshtml:421
-# \Views\Pipe\index.cshtml:588
-# \Views\Pipe\index.cshtml:596
-# \Views\Preparations\Index.cshtml:54
-# \Views\ProductSizes\Index.cshtml:57
+# \Views\Pipe\index.cshtml:133
+# \Views\Pipe\index.cshtml:140
+# \Views\Pipe\index.cshtml:260
+# \Views\Pipe\index.cshtml:268
+# \Views\Pipe\index.cshtml:415
+# \Views\Pipe\index.cshtml:422
+# \Views\Pipe\index.cshtml:589
+# \Views\Pipe\index.cshtml:597
+# \Views\Preparations\Index.cshtml:50
+# \Views\ProductSizes\Index.cshtml:50
 msgid "Size"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:148
-# \Views\Pipe\index.cshtml:277
-# \Views\Pipe\index.cshtml:430
-# \Views\Pipe\index.cshtml:605
+# \Views\Pipe\index.cshtml:149
+# \Views\Pipe\index.cshtml:278
+# \Views\Pipe\index.cshtml:431
+# \Views\Pipe\index.cshtml:606
 msgid "Number of brackets per set"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:160
-# \Views\Pipe\index.cshtml:290
-# \Views\Pipe\index.cshtml:618
+# \Views\Pipe\index.cshtml:161
+# \Views\Pipe\index.cshtml:291
+# \Views\Pipe\index.cshtml:619
 msgid "Brackets positioning"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:167
-# \Views\Pipe\index.cshtml:298
-# \Views\Pipe\index.cshtml:449
-# \Views\Pipe\index.cshtml:626
+# \Views\Pipe\index.cshtml:168
+# \Views\Pipe\index.cshtml:299
+# \Views\Pipe\index.cshtml:450
+# \Views\Pipe\index.cshtml:627
 msgid "Brackets welding"
-msgstr ""
-
-# \Views\Pipe\index.cshtml:176
-# \Views\Pipe\index.cshtml:182
-# \Views\Pipe\index.cshtml:308
-# \Views\Pipe\index.cshtml:314
-# \Views\Pipe\index.cshtml:458
-# \Views\Pipe\index.cshtml:464
-# \Views\Pipe\index.cshtml:635
-# \Views\Pipe\index.cshtml:642
-# \Views\Pipe\index.cshtml:1071
-msgid "BRANCH"
 msgstr ""
 
 # \Views\Pipe\index.cshtml:177
@@ -422,8 +413,8 @@ msgstr ""
 # \Views\Pipe\index.cshtml:465
 # \Views\Pipe\index.cshtml:636
 # \Views\Pipe\index.cshtml:643
-# \Views\Pipe\index.cshtml:1072
-msgid "DIAMETER"
+# \Views\Pipe\index.cshtml:1071
+msgid "BRANCH"
 msgstr ""
 
 # \Views\Pipe\index.cshtml:178
@@ -434,68 +425,80 @@ msgstr ""
 # \Views\Pipe\index.cshtml:466
 # \Views\Pipe\index.cshtml:637
 # \Views\Pipe\index.cshtml:644
+# \Views\Pipe\index.cshtml:1072
+msgid "DIAMETER"
+msgstr ""
+
+# \Views\Pipe\index.cshtml:179
+# \Views\Pipe\index.cshtml:185
+# \Views\Pipe\index.cshtml:311
+# \Views\Pipe\index.cshtml:317
+# \Views\Pipe\index.cshtml:461
+# \Views\Pipe\index.cshtml:467
+# \Views\Pipe\index.cshtml:638
+# \Views\Pipe\index.cshtml:645
 # \Views\Pipe\index.cshtml:1073
 msgid "DRAWING POSITION (OPTION)"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:223
-# \Views\Pipe\index.cshtml:376
-# \Views\Pipe\index.cshtml:547
-# \Views\Pipe\index.cshtml:724
+# \Views\Pipe\index.cshtml:224
+# \Views\Pipe\index.cshtml:377
+# \Views\Pipe\index.cshtml:548
+# \Views\Pipe\index.cshtml:725
 # \Views\Pipe\index.cshtml:1031
 msgid "BOILERMAKER"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:227
-# \Views\Pipe\index.cshtml:381
-# \Views\Pipe\index.cshtml:553
-# \Views\Pipe\index.cshtml:731
+# \Views\Pipe\index.cshtml:228
+# \Views\Pipe\index.cshtml:382
+# \Views\Pipe\index.cshtml:554
+# \Views\Pipe\index.cshtml:732
 # \Views\Pipe\index.cshtml:1032
 msgid "WELDER"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:442
+# \Views\Pipe\index.cshtml:443
 msgid "Braclets positioning"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:747
+# \Views\Pipe\index.cshtml:748
 msgid "Bending:"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:751
+# \Views\Pipe\index.cshtml:752
 msgid "USED DIAMETERS"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:757
+# \Views\Pipe\index.cshtml:758
 msgid ".oth"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:762
+# \Views\Pipe\index.cshtml:763
 msgid "Number of used diameters"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:771
+# \Views\Pipe\index.cshtml:772
 msgid "Number of bendings"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:780
+# \Views\Pipe\index.cshtml:781
 msgid "Options:"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:784
+# \Views\Pipe\index.cshtml:785
 msgid "RESET OPTIONS"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:792
+# \Views\Pipe\index.cshtml:793
 msgid "PUMP OUTLET COVER"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:795
+# \Views\Pipe\index.cshtml:796
 # \Views\Pipe\index.cshtml:1075
 msgid "BENDS"
 msgstr ""
 
-# \Views\Pipe\index.cshtml:800
+# \Views\Pipe\index.cshtml:801
 msgid "Selected option"
 msgstr ""
 
@@ -593,18 +596,18 @@ msgid "Preparation"
 msgstr ""
 
 # \Views\Preparations\Create.cshtml:41
-# \Views\Preparations\Edit.cshtml:81
-# \Views\Preparations\Index.cshtml:57
+# \Views\Preparations\Edit.cshtml:83
+# \Views\Preparations\Index.cshtml:59
 msgid "Welder"
 msgstr ""
 
 # \Views\Preparations\Create.cshtml:47
-# \Views\Preparations\Edit.cshtml:86
+# \Views\Preparations\Edit.cshtml:88
 # \Views\Preparations\Index.cshtml:56
 msgid "Fitter"
 msgstr ""
 
-# \Views\Preparations\Index.cshtml:53
+# \Views\Preparations\Index.cshtml:47
 msgid "Diameter Line"
 msgstr ""
 
@@ -620,7 +623,7 @@ msgstr ""
 # \Views\ProductSizes\Delete.cshtml:19
 # \Views\ProductSizes\Details.cshtml:40
 # \Views\ProductSizes\Edit.cshtml:36
-# \Views\ProductSizes\Index.cshtml:48
+# \Views\ProductSizes\Index.cshtml:41
 msgid "ProductSize"
 msgstr ""
 
@@ -629,22 +632,12 @@ msgid "Product Type"
 msgstr ""
 
 # \Views\Settings\Claims.cshtml:24
-# \Views\Settings\Index.cshtml:25
-# \Views\Settings\Permissions.cshtml:25
-# \Views\Settings\Roles.cshtml:27
-# \Views\Settings\Users.cshtml:25
 msgid "Home"
 msgstr ""
 
 # \Views\Settings\Claims.cshtml:25
-# \Views\Settings\Index.cshtml:26
-# \Views\Settings\Permissions.cshtml:7
-# \Views\Settings\Permissions.cshtml:26
-# \Views\Settings\Roles.cshtml:8
-# \Views\Settings\Roles.cshtml:28
 # \Views\Settings\Users.cshtml:6
-# \Views\Settings\Users.cshtml:26
-# \Views\Shared\_Header.cshtml:65
+# \Views\Shared\_Header.cshtml:57
 msgid "Settings"
 msgstr ""
 
@@ -652,99 +645,58 @@ msgstr ""
 msgid "Claims"
 msgstr ""
 
-# \Views\Settings\Index.cshtml:32
-# \Views\Settings\Index.cshtml:34
-# \Views\Settings\Users.cshtml:27
-# \Views\Settings\Users.cshtml:31
-# \Views\Shared\_Header.cshtml:66
-msgid "Users"
+# \Views\Settings\Create.cshtml:18
+# \Views\Settings\Edit.cshtml:18
+msgid "User"
 msgstr ""
 
-# \Views\Settings\Index.cshtml:37
-# \Views\Settings\Roles.cshtml:29
-# \Views\Shared\_Header.cshtml:67
-msgid "Roles"
+# \Views\Settings\Create.cshtml:33
+# \Views\Settings\Edit.cshtml:35
+msgid "Username"
 msgstr ""
 
-# \Views\Settings\Index.cshtml:40
-# \Views\Settings\Permissions.cshtml:27
-# \Views\Shared\_Header.cshtml:68
-msgid "Permissions"
+# \Views\Settings\Create.cshtml:39
+msgid "First and Last Name"
 msgstr ""
 
-# \Views\Settings\Index.cshtml:43
-# \Views\Shared\_Header.cshtml:71
-msgid "My Permissions"
-msgstr ""
-
-# \Views\Settings\Index.cshtml:50
-msgid "Tables"
-msgstr ""
-
-# \Views\Settings\Index.cshtml:52
-msgid "Operations"
-msgstr ""
-
-# \Views\Settings\Index.cshtml:55
-msgid "Operation Steps"
-msgstr ""
-
-# \Views\Settings\Index.cshtml:61
-msgid "Product Lines"
-msgstr ""
-
-# \Views\Settings\Index.cshtml:64
-msgid "Product Sizes"
-msgstr ""
-
-# \Views\Settings\Permissions.cshtml:49
-msgid "Value"
-msgstr ""
-
-# \Views\Settings\Roles.cshtml:50
-msgid "Created"
-msgstr ""
-
-# \Views\Settings\Roles.cshtml:55
-msgid "Active"
-msgstr ""
-
-# \Views\Settings\Roles.cshtml:111
-# \Views\Settings\Users.cshtml:96
-msgid "of"
-msgstr ""
-
-# \Views\Settings\Users.cshtml:40
-msgid "Display Name"
-msgstr ""
-
-# \Views\Settings\Users.cshtml:48
-msgid "UserName"
-msgstr ""
-
-# \Views\Settings\Users.cshtml:54
+# \Views\Settings\Create.cshtml:45
+# \Views\Settings\Edit.cshtml:47
+# \Views\Settings\Users.cshtml:35
 msgid "Email"
 msgstr ""
 
-# \Views\Settings\Roles\_Create.cshtml:8
-msgid "New"
+# \Views\Settings\Create.cshtml:51
+# \Views\Settings\Edit.cshtml:59
+# \Views\Settings\Users.cshtml:34
+msgid "Role"
 msgstr ""
 
-# \Views\Settings\Roles\_Create.cshtml:26
-# \Views\Settings\Roles\_Edit.cshtml:43
-msgid "Save"
+# \Views\Settings\Create.cshtml:60
+# \Views\Settings\Edit.cshtml:53
+msgid "Password"
 msgstr ""
 
-# \Views\Settings\Roles\_Edit.cshtml:28
-msgid "Status"
+# \Views\Settings\Create.cshtml:66
+msgid "Confirm Password"
 msgstr ""
 
-# \Views\Settings\Roles\_Edit.cshtml:32
-msgid "Disable"
+# \Views\Settings\Index.cshtml:96
+# \Views\Settings\Index.cshtml:98
+# \Views\Settings\Users.cshtml:26
+# \Views\Shared\_Header.cshtml:64
+msgid "Users"
 msgstr ""
 
-# \Views\Settings\Roles\_Edit.cshtml:33
-msgid "Enable"
+# \Views\Settings\Users.cshtml:32
+msgid "Display Name"
+msgstr ""
+
+# \Views\Settings\Users.cshtml:33
+msgid "UserName"
+msgstr ""
+
+# \Views\Settings\Users.cshtml:82
+msgid "of"
 msgstr ""
 
 # \Views\Shared\_Header.cshtml:14
@@ -755,22 +707,23 @@ msgstr ""
 msgid "What you're looking for?"
 msgstr ""
 
-# \Views\Shared\_Header.cshtml:33
+# \Views\Shared\_Header.cshtml:32
 msgid "Search"
 msgstr ""
 
-# \Views\Shared\_Header.cshtml:36
-msgid "Show filters setting"
+# \Views\Shared\_Header.cshtml:62
+msgid "Operation Steps"
 msgstr ""
 
-# \Views\Shared\_Header.cshtml:38
-msgid "Show all records"
+# \Views\Shared\_Header.cshtml:68
+msgid "My Permissions"
+msgstr ""
+
+# \Views\Shared\_Header.cshtml:69
+msgid "Log Out"
 msgstr ""
 
 # \Views\Shared\_Toolbar.cshtml:24
 msgid "Cancel filter"
-msgstr ""
-
-msgid "Back"
 msgstr ""
 

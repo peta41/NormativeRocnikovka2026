@@ -39,7 +39,7 @@
 
 <div class="container d-flex justify-content-center mt-5">
     <div class="row w-75">
-        <form asp-action="Edit" class="row">
+        <form asp-action="Edit" class="row" id="myform">
             <div asp-validation-summary="ModelOnly" class="text-danger col-12 mb-3"></div>
             <input type="hidden" asp-for="@Model.Preparation.Id" />
 
@@ -48,7 +48,8 @@
                 <select name="ProductSize" class="form-control">
                     @foreach (ProductSize size in Model.ProductSizes)
                     {
-                        if (Model.Preparation.ProductSize.ProductSizeId == size.ProductSizeId)
+                        if (Model.Preparation?.ProductSize != null &&
+                        Model.Preparation.ProductSize.ProductSizeId == size.ProductSizeId)
                         {
                             <option value="@size.ProductSizeId" selected class="form-control Size-adjust-E-Stl">@size.Size</option>
                         }
@@ -65,7 +66,8 @@
                 <select name="PreparationType" class="form-control">
                     @foreach (PreparationType type in Model.PreparationsType)
                     {
-                        if (Model.Preparation.PreparationType.Id == type.Id)
+                        if (Model.Preparation?.PreparationType != null &&
+                        Model.Preparation.PreparationType.Id == type.Id)
                         {
                             <option value="@type.Id" selected class="form-control Name-adjust-E-Stl">@type.Name</option>
                         }
@@ -90,3 +92,16 @@
         </form>
     </div>
 </div>
+
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function Save() {
+            $('#myform').submit(); // jQuery .submit() trigger validaci spustí
+        }
+    </script>
+}

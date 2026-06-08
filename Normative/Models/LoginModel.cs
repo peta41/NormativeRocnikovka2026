@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace Normative.Models;
-
 public class LoginModel
 {
     //temporaryUserAccount

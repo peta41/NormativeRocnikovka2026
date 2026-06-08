@@ -33,7 +33,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" id="myform">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="@Model.ProductType.Name" class="control-label"></label>
@@ -51,6 +51,13 @@
     <button class="btn btn-outline-secondary w-10 me-1"><a class="Back-Button-ProductTypeCn" asp-action="Index">Back</a></button>
 </div> *@
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function Save() {
+            $('#myform').submit(); // jQuery .submit() trigger validaci spustí
+        }
+    </script>
 }

@@ -18,7 +18,7 @@
 <hr />
 <div class="container d-flex justify-content-center mt-5">
     <div class="row w-75">
-        <form asp-action="create" class="row">
+        <form asp-action="create" class="row" id="myform">
             <div class="form-group col-md-6">
                 <select name="ProductSize" class="form-select">
                     @foreach (ProductSize size in Model.ProductSizes)
@@ -50,3 +50,14 @@
         </form>
     </div>
 </div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function Save() {
+            $('#myform').submit(); // jQuery .submit() trigger validaci spustí
+        }
+    </script>
+}
