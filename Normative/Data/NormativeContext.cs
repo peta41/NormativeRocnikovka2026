@@ -52,51 +52,47 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
     public virtual DbSet<ViewUsersRoles> ViewUsersRoles { get; set; }
     public virtual DbSet<ViewPermission> ViewPermission { get; set; }
 
-    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // PostgreSQL: schéma "cfg" — lowercase je standard, ale funguje i PascalCase pokud ho vytvoříš stejně v DB
+        modelBuilder.HasDefaultSchema("cfg");
+
         modelBuilder.Entity<Permissions>(entity =>
         {
             entity.ToTable("Permissions", schema: "cfg");
-
-            entity.HasKey(entity => entity.PermissionId);
-
+            entity.HasKey(e => e.PermissionId);
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
             entity.ToTable("Roles", schema: "cfg");
-
             entity.HasKey(d => d.RoleId);
-
             entity.Property(d => d.Name).HasMaxLength(100);
             entity.Property(d => d.Description).HasMaxLength(300);
-
         });
 
         modelBuilder.Entity<RolePermission>(entity =>
         {
             entity.ToTable("RolePermissions", schema: "cfg");
-
-            entity.HasKey(entity => entity.Id);
+            entity.HasKey(e => e.Id);
 
             entity.HasOne(c => c.Permission)
                 .WithMany(c => c.Roles)
                 .HasForeignKey(d => d.PermissionId)
-                .OnDelete(DeleteBehavior.NoAction);
+                // PostgreSQL nepodporuje DeleteBehavior.NoAction stejně jako MSSQL —
+                // použij Restrict, které má stejný efekt (zamítne delete pokud existují závislé záznamy)
+                .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasOne(c => c.Role)
                 .WithMany(c => c.RolePermissions)
                 .HasForeignKey(d => d.RoleId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<User>(entity =>
         {
             entity.ToTable("Users", schema: "cfg");
-
             entity.HasKey(d => d.UserId);
-
             entity.Property(d => d.UserName).HasMaxLength(20);
             entity.Property(d => d.DisplayName).HasMaxLength(255);
             entity.Property(d => d.Email).HasMaxLength(320);
@@ -109,19 +105,19 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
             entity.HasOne(c => c.User)
                 .WithMany(c => c.UserRoles)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasOne(c => c.Role)
                 .WithMany(c => c.UsersWithRole)
                 .HasForeignKey(d => d.RoleId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<ViewUsersRoles>(entity =>
         {
             entity.ToView("V_UsersRoles").HasNoKey();
         });
-        
+
         modelBuilder.Entity<ViewPermission>(entity =>
         {
             entity.ToView("V_ViewPermission").HasNoKey();
@@ -129,35 +125,49 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
 
         modelBuilder.Entity<Operation>(entity =>
         {
-            entity.HasKey(e => e.OperationId).HasName("PK__Operace__3214EC271F9E5207");
+            // PostgreSQL generuje vlastní názvy PK — HasName() je volitelné,
+            // ale lze ponechat pro konzistenci pokud migration pojmenování řídíš ručně
+            entity.HasKey(e => e.OperationId).HasName("PK_Operation");
 
-            entity.HasOne(d => d.ProductLine).WithMany(p => p.Operation).HasConstraintName("FK_Operation_ProductLine");
+            entity.HasOne(d => d.ProductLine)
+                .WithMany(p => p.Operation)
+                .HasConstraintName("FK_Operation_ProductLine")
+                .OnDelete(DeleteBehavior.Restrict);
 
-            entity.HasOne(d => d.ProductType).WithMany(p => p.Operation).HasConstraintName("FK_Operation_ProductType");
+            entity.HasOne(d => d.ProductType)
+                .WithMany(p => p.Operation)
+                .HasConstraintName("FK_Operation_ProductType")
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<OperationStep>(entity =>
         {
-            entity.HasKey(e => e.OperationStepId);
+            entity.HasKey(e => e.OperationStepId).HasName("PK_OperationStep");
 
-            entity.HasOne(d => d.Operation).WithMany(p => p.OperationStep).HasConstraintName("FK_OperationStep_Operation");
+            entity.HasOne(d => d.Operation)
+                .WithMany(p => p.OperationStep)
+                .HasConstraintName("FK_OperationStep_Operation")
+                .OnDelete(DeleteBehavior.Restrict);
 
-            entity.HasOne(d => d.ProductSize).WithMany(p => p.OperationStep).HasConstraintName("FK_OperationStep_ProductSize");
+            entity.HasOne(d => d.ProductSize)
+                .WithMany(p => p.OperationStep)
+                .HasConstraintName("FK_OperationStep_ProductSize")
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<ProductLine>(entity =>
         {
-            entity.HasKey(e => e.ProductLineId).HasName("PK__VyrobekR__3214EC276286AE61");
+            entity.HasKey(e => e.ProductLineId).HasName("PK_ProductLine");
         });
 
         modelBuilder.Entity<ProductSize>(entity =>
         {
-            entity.HasKey(e => e.ProductSizeId).HasName("PK__VyrobekV__3214EC27014D033A");
+            entity.HasKey(e => e.ProductSizeId).HasName("PK_ProductSize");
         });
 
         modelBuilder.Entity<ProductType>(entity =>
         {
-            entity.HasKey(e => e.ProductTypeId).HasName("PK__VyrobekT__3214EC27C0ED5D98");
+            entity.HasKey(e => e.ProductTypeId).HasName("PK_ProductType");
         });
 
         modelBuilder.Entity<V_Preparation>(entity =>
@@ -208,13 +218,11 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
         modelBuilder.Entity<V_VTC_OutherVessel_OPSQ_40>(entity =>
         {
             entity.ToView("v_VTC_OutherVessel_OPSQ_40");
-
         });
-
-
 
         modelBuilder.Entity<Preparation>(entity =>
         {
+            // numeric(18,4) — PostgreSQL ekvivalent decimal(18,4), HasPrecision funguje stejně
             entity.Property("Fitter").HasPrecision(18, 4);
             entity.Property("Welder").HasPrecision(18, 4);
             entity.Property("ProductSizeId").IsRequired(true);
@@ -226,21 +234,11 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
             entity.Property("Name").HasMaxLength(250);
         });
 
-
-
         OnModelCreatingPartial(modelBuilder);
-        //temporaryUserAccount
         base.OnModelCreating(modelBuilder);
-        //ENDtemporaryUserAccount
 
         ModelBuilderExtensions.SeedData(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-    //temporaryUserAccount
-    //public NormativeContext(DbContextOptions<NormativeContext> options) : base(options)
-    //{
-    //}
-    //ENDtemporaryUserAccount
 }
