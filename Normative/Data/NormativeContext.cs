@@ -55,7 +55,7 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // PostgreSQL: schéma "cfg" — lowercase je standard, ale funguje i PascalCase pokud ho vytvoříš stejně v DB
-        modelBuilder.HasDefaultSchema("cfg");
+        modelBuilder.HasDefaultSchema("public");
 
         modelBuilder.Entity<Permissions>(entity =>
         {
@@ -127,6 +127,9 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
         {
             // PostgreSQL generuje vlastní názvy PK — HasName() je volitelné,
             // ale lze ponechat pro konzistenci pokud migration pojmenování řídíš ručně
+
+            entity.ToTable("Operation", schema: "cfg");
+
             entity.HasKey(e => e.OperationId).HasName("PK_Operation");
 
             entity.HasOne(d => d.ProductLine)
@@ -142,6 +145,8 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
 
         modelBuilder.Entity<OperationStep>(entity =>
         {
+            entity.ToTable("OperationStep", schema: "cfg");
+
             entity.HasKey(e => e.OperationStepId).HasName("PK_OperationStep");
 
             entity.HasOne(d => d.Operation)
@@ -157,16 +162,19 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
 
         modelBuilder.Entity<ProductLine>(entity =>
         {
+            entity.ToTable("ProductLine", schema: "cfg");
             entity.HasKey(e => e.ProductLineId).HasName("PK_ProductLine");
         });
 
         modelBuilder.Entity<ProductSize>(entity =>
         {
+            entity.ToTable("ProductSize", schema: "cfg");
             entity.HasKey(e => e.ProductSizeId).HasName("PK_ProductSize");
         });
 
         modelBuilder.Entity<ProductType>(entity =>
         {
+            entity.ToTable("ProductType", schema: "cfg");
             entity.HasKey(e => e.ProductTypeId).HasName("PK_ProductType");
         });
 
@@ -222,6 +230,7 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
 
         modelBuilder.Entity<Preparation>(entity =>
         {
+            entity.ToTable("Preparation", schema: "cfg");
             // numeric(18,4) — PostgreSQL ekvivalent decimal(18,4), HasPrecision funguje stejně
             entity.Property("Fitter").HasPrecision(18, 4);
             entity.Property("Welder").HasPrecision(18, 4);
@@ -231,6 +240,7 @@ public partial class NormativeContext(DbContextOptions<NormativeContext> options
 
         modelBuilder.Entity<PreparationType>(entity =>
         {
+            entity.ToTable("PreparationType", schema: "cfg");
             entity.Property("Name").HasMaxLength(250);
         });
 
