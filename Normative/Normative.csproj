@@ -38,6 +38,12 @@
 
   </ItemGroup>
 
+	<ItemGroup>
+		<Content Include="Resource\**">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
 	<Target Name="resources" AfterTargets="Build">
 		<ItemGroup>
 			<Resources Include="Resource\**\*" />

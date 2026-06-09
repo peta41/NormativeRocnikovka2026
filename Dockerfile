@@ -26,4 +26,5 @@ RUN dotnet publish "./Normative.csproj" -c $BUILD_CONFIGURATION -o /app/publish 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY ["Normative/Resource/", "Resource/"]
 ENTRYPOINT ["dotnet", "Normative.dll"]
