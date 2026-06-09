@@ -103,37 +103,44 @@ try
     //builder.Services.AddScoped<IClaimsTransformation, AddRolesClaimsTransformation>();
 
     // Support Multi-Language
-    string path = Directory.GetCurrentDirectory() + @"\Resource\";
-    if (Directory.Exists(path))
+    string resource = Directory.GetCurrentDirectory() + @"\Resource\";
+    if (Directory.Exists(resource))
     {
         builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
         builder.Services.AddPortableObjectLocalization();
         builder.Services.AddHostedService<PoFileRefresherService>();
+        // Support Multi-Language - registruj VŽDY
         builder.Services.AddLocalization(options => options.ResourcesPath = "Resource");
+        builder.Services.AddMvc()
+            .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+            .AddDataAnnotationsLocalization();
+        builder.Services.AddPortableObjectLocalization();
+        builder.Services.AddControllers().AddNewtonsoftJson();
+
+        // .po soubory naèítej jen pokud složka existuje
+        string path = Path.Combine(Directory.GetCurrentDirectory(), "Resource");
+        if (Directory.Exists(path))
+        {
+            builder.Services.AddHostedService<PoFileRefresherService>();
+        }
+
         builder.Services.Configure<RequestLocalizationOptions>(options =>
         {
-            // Load Language File from Folder
             var supportedCultures = new List<CultureInfo>();
-            string path = Directory.GetCurrentDirectory() + @"\Resource\";
+
             if (Directory.Exists(path))
             {
-                DirectoryInfo d = new(path);
-                List<FileInfo> languages = d.GetFiles("*.po").ToList();
-
-                foreach (FileInfo lang in languages)
-                {
+                var languages = new DirectoryInfo(path).GetFiles("*.po").ToList();
+                foreach (var lang in languages)
                     supportedCultures.Add(CultureInfo.GetCultureInfo(Path.GetFileNameWithoutExtension(lang.Name)));
-                }
-            }
-            else
-            {
-                supportedCultures.Add(CultureInfo.GetCultureInfo("cs-CZ"));
             }
 
-            options.DefaultRequestCulture = new RequestCulture(culture: "cs-CZ", uiCulture: "cs-CZ");
+            if (!supportedCultures.Any())
+                supportedCultures.Add(CultureInfo.GetCultureInfo("cs-CZ"));
+
+            options.DefaultRequestCulture = new RequestCulture("cs-CZ", "cs-CZ");
             options.SupportedCultures = supportedCultures;
             options.SupportedUICultures = supportedCultures;
-
         });
 
         builder.Services.AddMvc()
@@ -167,6 +174,7 @@ try
     app.UseHttpsRedirection();
     app.UseStaticFiles();
 
+    app.UseRequestLocalization();
     app.UseRouting();
     //temporaryUserAccount
     app.UseAuthentication();
@@ -179,7 +187,7 @@ try
     app.MapRazorPages();
 
 
-    app.UseRequestLocalization();
+    
 
 
     app.MapControllerRoute(
