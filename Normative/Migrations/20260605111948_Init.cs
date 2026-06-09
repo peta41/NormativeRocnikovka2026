@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -21,11 +22,11 @@ namespace Normative.Migrations
                 schema: "cfg",
                 columns: table => new
                 {
-                    PermissionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Created = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PermissionId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Type = table.Column<string>(type: "text", nullable: true),
+                    Value = table.Column<string>(type: "text", nullable: true),
+                    Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,10 +37,10 @@ namespace Normative.Migrations
                 name: "PreparationType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,10 +51,10 @@ namespace Normative.Migrations
                 name: "ProductLine",
                 columns: table => new
                 {
-                    ProductLine_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "varchar(63)", unicode: false, maxLength: 63, nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    ProductLine_Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(63)", maxLength: 63, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,11 +65,11 @@ namespace Normative.Migrations
                 name: "ProductSize",
                 columns: table => new
                 {
-                    ProductSize_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "varchar(63)", unicode: false, maxLength: 63, nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    Size = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true)
+                    ProductSize_Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(63)", maxLength: 63, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Size = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,10 +80,10 @@ namespace Normative.Migrations
                 name: "ProductType",
                 columns: table => new
                 {
-                    ProductType_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "varchar(63)", unicode: false, maxLength: 63, nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    ProductType_Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(63)", maxLength: 63, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,12 +95,12 @@ namespace Normative.Migrations
                 schema: "cfg",
                 columns: table => new
                 {
-                    RoleId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
-                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    RoleId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    Description = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: true),
+                    Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -111,14 +112,14 @@ namespace Normative.Migrations
                 schema: "cfg",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    DisplayName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(320)", maxLength: 320, nullable: true),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    UserId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserName = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    DisplayName = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: true),
+                    Email = table.Column<string>(type: "character varying(320)", maxLength: 320, nullable: true),
+                    PasswordHash = table.Column<string>(type: "text", nullable: true),
+                    Created = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -129,13 +130,13 @@ namespace Normative.Migrations
                 name: "Preparations",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductSizeId = table.Column<int>(type: "int", nullable: false),
-                    PreparationTypeId = table.Column<int>(type: "int", nullable: false),
-                    Fitter = table.Column<decimal>(type: "decimal(18,4)", precision: 18, scale: 4, nullable: false),
-                    Welder = table.Column<decimal>(type: "decimal(18,4)", precision: 18, scale: 4, nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ProductSizeId = table.Column<int>(type: "integer", nullable: false),
+                    PreparationTypeId = table.Column<int>(type: "integer", nullable: false),
+                    Fitter = table.Column<decimal>(type: "numeric(18,4)", precision: 18, scale: 4, nullable: false),
+                    Welder = table.Column<decimal>(type: "numeric(18,4)", precision: 18, scale: 4, nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -158,14 +159,14 @@ namespace Normative.Migrations
                 name: "Operation",
                 columns: table => new
                 {
-                    Operation_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductLine_Id = table.Column<int>(type: "int", nullable: true),
-                    ProductType_Id = table.Column<int>(type: "int", nullable: true),
-                    OperationNumber = table.Column<int>(type: "int", nullable: true),
-                    OperationDescription = table.Column<string>(type: "varchar(63)", unicode: false, maxLength: 63, nullable: true),
-                    WorkCenter = table.Column<string>(type: "varchar(31)", unicode: false, maxLength: 31, nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Operation_Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ProductLine_Id = table.Column<int>(type: "integer", nullable: true),
+                    ProductType_Id = table.Column<int>(type: "integer", nullable: true),
+                    OperationNumber = table.Column<int>(type: "integer", nullable: true),
+                    OperationDescription = table.Column<string>(type: "character varying(63)", maxLength: 63, nullable: true),
+                    WorkCenter = table.Column<string>(type: "character varying(31)", maxLength: 31, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -187,10 +188,10 @@ namespace Normative.Migrations
                 schema: "cfg",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PermissionId = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    PermissionId = table.Column<int>(type: "integer", nullable: false),
+                    RoleId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -214,10 +215,10 @@ namespace Normative.Migrations
                 schema: "cfg",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    RoleId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -240,18 +241,18 @@ namespace Normative.Migrations
                 name: "OperationStep",
                 columns: table => new
                 {
-                    OperationStep_Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Operation_Id = table.Column<int>(type: "int", nullable: true),
-                    ProductSize_Id = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DrawingPosition = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
-                    Description = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
-                    Sequence = table.Column<int>(type: "int", nullable: true),
-                    StandardHour = table.Column<int>(type: "int", nullable: true),
-                    Diameter = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
-                    PipeBending = table.Column<int>(type: "int", nullable: true)
+                    OperationStep_Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Operation_Id = table.Column<int>(type: "integer", nullable: true),
+                    ProductSize_Id = table.Column<int>(type: "integer", nullable: true),
+                    Name = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    DrawingPosition = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    Description = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: true),
+                    Sequence = table.Column<int>(type: "integer", nullable: true),
+                    StandardHour = table.Column<int>(type: "integer", nullable: true),
+                    Diameter = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    PipeBending = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -577,7 +578,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 2 -- spatne id (1 => Vnejsi, 2 => Vnitrni)
 	                AND ok1.ProductSize_Id = 5
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -615,7 +615,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 2 -- spatne id (1 => Vnejsi, 2 => Vnitrni)
 	                AND ok1.ProductSize_Id = 5
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -652,7 +651,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 1
 	                AND ok1.ProductSize_Id = 1
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -690,7 +688,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 1
 	                AND ok1.ProductSize_Id = 1
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -728,7 +725,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 1
 	                AND ok1.ProductSize_Id = 1
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -804,7 +800,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 3
 	                AND ok1.ProductSize_Id = 8
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -880,7 +875,6 @@ namespace Normative.Migrations
 	                AND vr.ProductLine_Id = 1 
 	                AND vt.ProductType_Id = 3
 	                AND ok1.ProductSize_Id = 8
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -928,7 +922,6 @@ namespace Normative.Migrations
                 FROM [dbo].[v_VTC_Pipe_OPSQ_20] AS view1
                 INNER JOIN [dbo].[v_VTC_Pipe_OPSQ_30] AS view2 
                 ON view1.Sequence = view2.Sequence;
-                GO
             ");
 
             migrationBuilder.Sql(@"
@@ -940,7 +933,6 @@ namespace Normative.Migrations
                              cfg.Roles AS r ON ur.RoleId = r.RoleId
                 WHERE (u.IsActive = 1) AND (r.IsActive = 1 OR
                              r.IsActive IS NULL)
-                GO
             ");
         }
 

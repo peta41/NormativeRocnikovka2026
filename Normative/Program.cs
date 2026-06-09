@@ -1,32 +1,21 @@
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.EntityFrameworkCore;
-using NLog;
-using NLog.Web;
 using System.Globalization;
-using Microsoft.AspNetCore.Mvc;
 using Normative.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Normative.Services;
+using Microsoft.EntityFrameworkCore;
 
-var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
 try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-
-
-    // Use NLog as logged system
-    builder.Logging.ClearProviders();
-    builder.Host.UseNLog();
-
     // Add Database connection
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     builder.Services.AddDbContext<NormativeContext>(options =>
-        options.UseSqlServer(connectionString)//.EnableSensitiveDataLogging(true)
+        options.UseNpgsql(connectionString)//.EnableSensitiveDataLogging(true)
     );
 
     // Catch database error message
@@ -201,12 +190,6 @@ try
 }
 catch (Exception exception)
 {
-    // NLog: catch setup errors
-    logger.Error(exception, "Stopped program because of exception");
+    Console.WriteLine(exception.Message);
     throw;
-}
-finally
-{
-    // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
-    NLog.LogManager.Shutdown();
 }
