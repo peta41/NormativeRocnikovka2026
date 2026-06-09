@@ -24,7 +24,7 @@ try
     builder.Host.UseNLog();
 
     // Add Database connection
-    var connectionString = builder.Configuration.GetConnectionString("Normative");
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     builder.Services.AddDbContext<NormativeContext>(options =>
         options.UseSqlServer(connectionString)//.EnableSensitiveDataLogging(true)
     );
